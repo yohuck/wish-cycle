@@ -49,10 +49,9 @@ $(function() {
   
         data.organic_results.forEach(res =>{
             
-            result2 = 
-            `<p>${res.title}</p>
-            <a target="_blank" href="${res.url}">${res.url}</a>
-            `
+            result2 = `<p>${res.title}</p>
+            <a target="_blank" href="${res.url}">${res.url}</a>`
+
             $("#result2").addClass("show")
             $("#result2").append(result2)
         })
@@ -68,13 +67,12 @@ $(function() {
         });
   
         data.organic_results.forEach(res => {
-  
-            result4 = 
-            `<p>${res.title}</p>
+            
+            result4 = `<p>${res.title}</p>
             <a target="_blank" href="${res.url}">${res.url}</a>`
             
             $("#result4").addClass("show")
             $("#result4").append(result4)
         })
     })
-  })
+})
