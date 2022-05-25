@@ -1,0 +1,11 @@
+#result2, #result3, #result4{
+    margin-top: 30px;
+    visibility: hidden;
+}
+#result{
+    visibility: hidden;
+}
+
+#result.show, #result2.show, #result3.show, #result4.show{
+    visibility: visible;
+}
