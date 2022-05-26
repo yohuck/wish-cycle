@@ -8,13 +8,65 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="center">
-        <h1>Enter the item you'd like to search for:</h1>
-        <input type="text" id="search">
-        <input type="submit" value="submit" id="submit">
-        <div class="result" id="result"></div>
-    </div>
+    <section class="hero is-danger is-fullheight" id="landing">
+        <div class="hero-body">
+            <div class="">
+                <p class="title">
+                Recycle Better
+                </p>
+            <p class="subtitle">
+            Enter the item you'd like reycling information about
+            </p>
+            <div class="field">
+                <label class="label"></label>
+                <div class="control">
+                <input class="input" id='search' type="text" placeholder="Batteries">
+                </div>
+            </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link" id="submit">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link is-light" id="searchByPicture">Search by picture</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </section>
+    <section id="second" class="hero is-warning is-fullheight">
+        <div class="hero-body">
+            <div class="">
+                <div class="tile is-ancestor">
+                    <div class="tile is-parent">
+                      <article class="tile is-child box notification is-danger">
+                        <p class="title">Kitchen</p>
+                        <i class="fa-solid fa-kitchen-set fa-10x"></i>
+                      </article>
+                    </div>
+                    <div class="tile is-parent ">
+                      <article class="tile is-child box notification is-info">
+                        <p class="title">Garage</p>
+                        <i class="fa-solid fa-warehouse fa-10x"></i>
+                      </article>
+                    </div>
+                    <div class="tile is-parent">
+                      <article class="tile is-child box notification is-success">
+                        <p class="title">Packaging</p>
+                        <i class="fa-solid fa-boxes-packing fa-10x"></i>
+                        <div class="content">
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./script.js"></script>
+    <!-- <script src="./script.js"></script> -->
+    <script src="./ui.js"></script>
+</body>
 </body>
 </html>
