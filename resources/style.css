@@ -7,3 +7,22 @@
 .center{
     text-align: center;
 }
+
+
+
+
+
+#landing{
+    /* position: fixed; */
+    transition: 1s;
+}
+
+#second{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    transform: translateX(200%);
+    transition: 1s;
+}
+
