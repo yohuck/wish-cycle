@@ -26,3 +26,11 @@
     transition: 1s;
 }
 
+.hero{
+    width: 100vw;
+}
+
+.is-ancestor{
+    display: flex;
+    flex-wrap: wrap;
+}
