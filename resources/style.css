@@ -53,3 +53,14 @@ body {
 .title {
     color: white;
 }
+
+.display{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.is-child:hover, .is-child:focus{
+    box-shadow: 5px 5px 5px rgba(38, 35, 35, 0.519);
+}
