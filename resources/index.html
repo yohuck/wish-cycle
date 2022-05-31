@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/4635c3c054.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <title>Wish Cycle</title>
 </head>
 <body>
     <section class="hero is-danger is-fullheight" id="landing">
@@ -36,27 +36,50 @@
             </div>
             
         </div>
-        
     </section>
     <section id="second" class="hero is-warning is-fullheight">
         <div class="hero-body">
             <div class="">
                 <div class="tile is-ancestor">
                     <div class="tile is-parent">
-                      <article class="tile is-child box notification is-danger">
-                        <p class="title">Kitchen</p>
+                      <article class="tile is-child box notification is-danger pageTwo">
+                        <p class="title has-text-white">Kitchen</p>
                         <i class="fa-solid fa-kitchen-set fa-10x"></i>
                       </article>
                     </div>
                     <div class="tile is-parent ">
-                      <article class="tile is-child box notification is-info">
-                        <p class="title">Garage</p>
+                      <article class="tile is-child box notification is-info pageTwo">
+                        <p class="title has-text-white">Garage</p>
                         <i class="fa-solid fa-warehouse fa-10x"></i>
                       </article>
                     </div>
                     <div class="tile is-parent">
-                      <article class="tile is-child box notification is-success">
-                        <p class="title">Packaging</p>
+                      <article class="tile is-child box notification is-success pageTwo">
+                        <p class="title has-text-white">Packaging</p>
+                        <i class="fa-solid fa-boxes-packing fa-10x"></i>
+                        <div class="content">
+                        </div>
+                      </article>
+                    </div>
+                    <div class="tile is-parent">
+                      <article class="tile is-child box notification is-danger pageTwo">
+                        <p class="title has-text-white">Electronics</p>
+                        <i class="fa-solid fa-boxes-packing fa-10x"></i>
+                        <div class="content">
+                        </div>
+                      </article>
+                    </div>
+                    <div class="tile is-parent">
+                      <article class="tile is-child box notification is-info pageTwo">
+                        <p class="title" id="title">Hazardous</p>
+                        <i class="fa-solid fa-boxes-packing fa-10x"></i>
+                        <div class="content">
+                        </div>
+                      </article>
+                    </div>
+                    <div class="tile is-parent">
+                      <article class="tile is-child box notification is-success pageTwo">
+                        <p class="title has-text-white">Paint</p>
                         <i class="fa-solid fa-boxes-packing fa-10x"></i>
                         <div class="content">
                         </div>
@@ -66,8 +89,86 @@
             </div>
         </div>
     </section>
+    <section class="hero is-light is-fullheight" id="third">
+      <div class="hero-body">
+          <div class="">
+            <div class="tile is-ancestor">
+              <div class="tile is-parent">
+                <article class="tile is-child box notification is-danger pageThree">
+                  <p class="title has-text-white">Hand soap</p>
+                  <i class="fa-solid fa-pump-soap fa-10x"></i>
+                </article>
+              </div>
+              <div class="tile is-parent ">
+                <article class="tile is-child box notification is-info pageThree">
+                  <p class="title has-text-white">Tissue Box</p>
+                  <i class="fa-solid fa-box-tissue fa-10x"></i>
+                </article>
+              </div>
+              <div class="tile is-parent" id="pizza">
+                <article class="tile is-child box notification is-success pageThree">
+                  <p class="title has-text-white">Pizza Box</p>
+                  <i class="fa-solid fa-pizza-slice fa-10x"></i>
+                  <div class="content">
+                  </div>
+                </article>
+              </div>
+              <div class="tile is-parent">
+                <article class="tile is-child box notification is-danger pageThree">
+                  <p class="title has-text-white">Jar</p>
+                  <i class="fa-solid fa-jar fa-10x"></i>
+                  <div class="content">
+                  </div>
+                </article>
+              </div>
+              <div class="tile is-parent">
+                <article class="tile is-child box notification is-info pageThree">
+                  <p class="title" id="title">Paper towell roll</p>
+                  <i class="fa-solid fa-toilet-paper fa-10x"></i>
+                  <div class="content">
+                  </div>
+                </article>
+              </div>
+              <div class="tile is-parent">
+                <article class="tile is-child box notification is-success pageThree">
+                  <p class="title has-text-white">Dish soap</p>
+                  <i class="fa-solid fa-sink fa-10x"></i>
+                  <div class="content">
+                  </div>
+                </article>
+              </div>
+            </div>
+      </div>
+      </div>
+  </section>
+  <section id="fourth" class="hero is-fullheight is-warning">
+    <div class="hero-body">
+      <div class="">
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <article class="display tile is-child box notification is-danger" id="result">
+              <p class="title has-text-white">Pizza</p>
+              <i class="fa-solid fa-pizza-slice fa-10x"></i>
+              <div class="content">
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <article class="display tile is-child box notification is-success">
+              <p class="title has-text-white">Recycling Information</p>
+              <i class="fa-solid fa-recycle fa-10x"></i>
+              <div class="content">
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- <script src="./script.js"></script> -->
+    <script src="./script.js"></script>
     <script src="../ui.js"></script>
 </body>
 </html>

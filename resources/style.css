@@ -8,21 +8,59 @@
     text-align: center;
 }
 
+body {
+    background-color: aqua;
+}
+
 
 
 
 
 #landing{
     /* position: fixed; */
-    transition: 1s;
+    transition: 0.7s ease-in-out;
 }
 
-#second{
+#second, #third, #fourth{
     position: absolute;
     top: 0;
     left: 0;
     z-index: 5;
-    transform: translateX(200%);
-    transition: 1s;
+    transform: translateX(100%);
+    transition: 0.7s ease-in-out;
 }
 
+#fourth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero{
+    width: 100vw;
+}
+
+.is-ancestor{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#title{
+    color: white;
+
+}
+
+.title {
+    color: white;
+}
+
+.display{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.is-child:hover, .is-child:focus{
+    box-shadow: 5px 5px 5px rgba(38, 35, 35, 0.519);
+}
