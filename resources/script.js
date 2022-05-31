@@ -12,6 +12,7 @@ submit.addEventListener('click', function(event){
   let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=material_synonyms like '%25" + queryTerm + "%25'" 
     console.log(query)
     fetchItem(query)
+
 })
 
 let fetchItem = urlSearch => {
