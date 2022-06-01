@@ -43,18 +43,40 @@ $.ajax({
 });
 
 }
-
 let landing = document.getElementById('landing');
 let submiter = document.getElementById('searchByPicture');
+let searchByCode = document.getElementById('searchByCode');
 let second = document.getElementById('second');
 let cards = document.getElementsByClassName('pageTwo');
 let pageThree = document.getElementsByClassName('pageThree');
 let pizza = document.getElementById('pizza')
 
 
+let searchButtons = [submiter, searchByCode];
+
+searchButtons.forEach(element => element.addEventListener('mouseenter', function(){
+  element.classList.remove('is-light');
+}))
+
+searchButtons.forEach(element => element.addEventListener('mouseleave', function(){
+  element.classList.add('is-light');
+}))
+
+submit.addEventListener('mouseenter', function(event){
+  console.log('hi')
+  submit.classList.add('is-light')
+})
+submit.addEventListener('mouseleave', function(){
+  submit.classList.remove('is-light')
+})
+
 
 submiter.addEventListener('click',function(){
-    console.log('hello')
+    landing.setAttribute('style','transform: translate(-100%)');
+    second.setAttribute('style','transform: translate(0%)')
+})
+
+searchByCode.addEventListener('click',function(){
     landing.setAttribute('style','transform: translate(-100%)');
     second.setAttribute('style','transform: translate(0%)')
 })
