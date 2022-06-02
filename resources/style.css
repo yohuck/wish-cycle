@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 
@@ -64,3 +64,49 @@ body {
 .is-child:hover, .is-child:focus{
     box-shadow: 5px 5px 5px rgba(38, 35, 35, 0.519);
 }
+
+
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    position: relative
+}
+
+#loader{
+    stroke-opacity: 1;
+    width: 30%;
+    animation: move-around 5s infinite;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+
+
+@keyframes move-around {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(720deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
