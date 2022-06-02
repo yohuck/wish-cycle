@@ -5,45 +5,45 @@ var electronicsBtn = document.getElementById('electronics')
 var hazardBtn = document.getElementById('hazard')
 
 var generalSearch = () =>{
-const successCallback = (position) => {
-    console.log(position);
-    var latitude = position.coords.latitude
-    var longitude = position.coords.longitude
-    var apiKey = 'e6c7145ef0589d5c1799b396e8bd2be3'
-
-    let url = 'https://api.openweathermap.org/geo/1.0/reverse?lat='+latitude+'&lon='+longitude+'&limit=1&appid=' + apiKey
-        $.ajax({
-            url: url,
-            type: 'get',
-        }) .done(function (data){
-            console.log(data)
-            location1.textContent = 'General Recycling for '+ data[0].name + ', ' + data[0].state
-            city = data[0].name
-
-            let result1 = '';
-            let url2 = 'https://api.valueserp.com/search?api_key=A194679C5A1340D5986D72FAE3E67B62&q=recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
-
+    const successCallback = (position) => {
+        console.log(position);
+        var latitude = position.coords.latitude
+        var longitude = position.coords.longitude
+        var apiKey = 'e6c7145ef0589d5c1799b396e8bd2be3'
+    
+        let url = 'https://api.openweathermap.org/geo/1.0/reverse?lat='+latitude+'&lon='+longitude+'&limit=1&appid=' + apiKey
             $.ajax({
-            url: url2,
-            type: 'GET',
-            }).done(function(data){
+                url: url,
+                type: 'get',
+            }) .done(function (data){
                 console.log(data)
-                data.local_results.forEach(result =>{
-                result1 = `<h1 class="title is-3">${result.title}</h1>
-                    <p>Phone Number: ${result.extensions[4]}</p>
-                    <a>${result.link}</a><br>`
-
-                $("#result").append(result1)
-                $("#result").addClass("show")
-            })     
-        })  
-        })
-}
-const errorCallback = (error) =>{
-    console.error(error)
-}
-
-navigator.geolocation.getCurrentPosition(successCallback,errorCallback)
+                location1.textContent = 'General Recycling for '+ data[0].name + ', ' + data[0].state
+                city = data[0].name
+            
+                let result1 = '';
+                let url2 = 'https://api.valueserp.com/search?api_key=A194679C5A1340D5986D72FAE3E67B62&q=recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
+            
+                $.ajax({
+                url: url2,
+                type: 'GET',
+                }).done(function(data){
+                    console.log(data)
+                    data.local_results.forEach(result =>{
+                    result1 = `<h1 class="title is-3">${result.title}</h1>
+                        <p>Phone Number: ${result.extensions[4]}</p>
+                        <a>${result.link}</a><br>`
+                    
+                    $("#result").append(result1)
+                    $("#result").addClass("show")
+                })     
+            })  
+            })
+    }
+    const errorCallback = (error) =>{
+        console.error(error)
+    }
+    
+    navigator.geolocation.getCurrentPosition(successCallback,errorCallback)
 }
 
 $('#general').on('click', generalSearch)
