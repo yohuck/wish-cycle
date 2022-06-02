@@ -106,3 +106,5 @@ pizza.addEventListener('click', function(){
       console.log(query)
       fetchItem(query)
 })
+
+
