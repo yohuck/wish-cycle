@@ -1,76 +1,140 @@
-// Location API for saying city.
-// 
+// search by asking for location 
 var location1 = document.getElementById('location1')
+var generalBtn = document.getElementById('general')
+var electronicsBtn = document.getElementById('electronics')
+var hazardBtn = document.getElementById('hazard')
 
-$(function(){
-  let url3 = 'https://fastah-ip.p.rapidapi.com/whereis/v1/json/auto'
-  $.ajax({
-    url: url3,
-    type: 'Get',
-    headers: {
-      'X-RapidAPI-Host': 'fastah-ip.p.rapidapi.com',
-		  'X-RapidAPI-Key': '515a2898a9msh2f25577eb75a280p1a4b8cjsnb61a243f2616'
-    }
-  }) .done(function (data){
-    displayLocation(data)
-  })
-  var displayLocation = function (data){
-    location1.textContent= data.locationData.cityName
-  }
-})
+var generalSearch = () =>{
+const successCallback = (position) => {
+    console.log(position);
+    var latitude = position.coords.latitude
+    var longitude = position.coords.longitude
+    var apiKey = 'e6c7145ef0589d5c1799b396e8bd2be3'
 
-// Search API for local recycling Info 
-// 
-$(function() {
+    let url = 'https://api.openweathermap.org/geo/1.0/reverse?lat='+latitude+'&lon='+longitude+'&limit=1&appid=' + apiKey
+        $.ajax({
+            url: url,
+            type: 'get',
+        }) .done(function (data){
+            console.log(data)
+            location1.textContent = 'General Recycling for '+ data[0].name + ', ' + data[0].state
+            city = data[0].name
 
-    result = '';
-    result2= '';
-    result3= '';
-    result4= '';
+            let result1 = '';
+            let url2 = 'https://api.valueserp.com/search?api_key=A194679C5A1340D5986D72FAE3E67B62&q=recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
+
+            $.ajax({
+            url: url2,
+            type: 'GET',
+            }).done(function(data){
+                console.log(data)
+                data.local_results.forEach(result =>{
+                result1 = `<h1 class="title is-3">${result.title}</h1>
+                    <p>Phone Number: ${result.extensions[4]}</p>
+                    <a>${result.link}</a><br>`
+
+                $("#result").append(result1)
+                $("#result").addClass("show")
+            })     
+        })  
+        })
+}
+const errorCallback = (error) =>{
+    console.error(error)
+}
+
+navigator.geolocation.getCurrentPosition(successCallback,errorCallback)
+}
+
+$('#general').on('click', generalSearch)
+
+
+var electronicSearch = () =>{
+    const successCallback2 = (position) => {
+        console.log(position);
+        var latitude = position.coords.latitude
+        var longitude = position.coords.longitude
+        var apiKey = 'e6c7145ef0589d5c1799b396e8bd2be3'
     
-    //4/100 API KEY uses
-    var api_KEY= 'fb3d1f5a0dbb8be1449df85450cf1633';
-    var url = 'http://api.serpstack.com/search?access_key=' + api_KEY +'&type=web&query=electronics+recycling&auto_location=1&num=4'
+        let url = 'https://api.openweathermap.org/geo/1.0/reverse?lat='+latitude+'&lon='+longitude+'&limit=1&appid=' + apiKey
+            $.ajax({
+                url: url,
+                type: 'get',
+            }) .done(function (data){
+                console.log(data)
+                $('#hidden').removeClass('hide')
+                location1.textContent = 'Electronics Recycling for '+ data[0].name + ', ' + data[0].state
+                city = data[0].name
+    
+                let result1 = '';
+                let url2 = 'https://api.valueserp.com/search?api_key=A194679C5A1340D5986D72FAE3E67B62&q=electronics+recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
+    
+                $.ajax({
+                url: url2,
+                type: 'GET',
+                }).done(function(data){
+                    console.log(data)
+                    data.local_results.forEach(result =>{
+                    result1 = `<h1 class="title is-3">${result.title}</h1>
+                        <p>${result.extensions[4]}</p>
+                        <a>${result.link}</a><br>`
+                    $("#result").append(result1)
+                    $("#result").addClass("show")
+                })     
+            })  
+            })
+    }
+    const errorCallback = (error) =>{
+        console.error(error)
+    }
+    
+    navigator.geolocation.getCurrentPosition(successCallback2,errorCallback)
+}
+
+$('#electronics').on('click', electronicSearch)  
 
 
-    $.ajax({
-      url: url,
-      type: 'GET',
-    }).done(function(data){
-      data.local_results.forEach(result =>{
-        let result1 = `<p>${result.title}</p>`
+var hazardSearch = () =>{
+    const successCallback3 = (position) => {
+        console.log(position);
+        var latitude = position.coords.latitude
+        var longitude = position.coords.longitude
+        var apiKey = 'e6c7145ef0589d5c1799b396e8bd2be3'
+    
+        let url = 'https://api.openweathermap.org/geo/1.0/reverse?lat='+latitude+'&lon='+longitude+'&limit=1&appid=' + apiKey
+            $.ajax({
+                url: url,
+                type: 'get',
+            }) .done(function (data){
+                console.log(data)
+                $('#hidden').removeClass('hide')
+                location1.textContent = 'Hazardous Recycling for '+ data[0].name + ', ' + data[0].state
+                city = data[0].name
+    
+                let result1 = '';
+                let url2 = 'https://api.valueserp.com/search?api_key=A194679C5A1340D5986D72FAE3E67B62&q=hazardous+recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
+    
+                $.ajax({
+                url: url2,
+                type: 'GET',
+                }).done(function(data){
+                    console.log(data)
+                    data.local_results.forEach(result =>{
+                    result1 = `<h1 class="title is-3">${result.title}</h1>
+                        <p>${result.extensions[4]}</p>
+                        <a>${result.link}</a><br>`
+    
+                    $("#result").append(result1)
+                    $("#result").addClass("show")
+                })     
+            })  
+            })
+    }
+    const errorCallback = (error) =>{
+        console.error(error)
+    }
+    
+    navigator.geolocation.getCurrentPosition(successCallback3,errorCallback)
+    }
 
-        $("#result").addClass("show")
-        $("#result").append(result1)
-      })
-      data.organic_results.forEach(result =>{
-        result2 = `<p>${result.title}</p>
-        <a target="_blank" href="${result.url}">${result.url}</a>`
-
-        $("#result2").addClass("show")
-        $("#result2").append(result2)
-      })
-    })
-  })
-  var api_KEY= 'fb3d1f5a0dbb8be1449df85450cf1633';
-  var url2 = 'http://api.serpstack.com/search?access_key=' + api_KEY +'&type=web&query=recycling&auto_location=1&num=4'
-    $.ajax({
-      url: url2,
-      type:'GET',
-    }).done(function(data){
-      data.local_results.forEach(result => {
-            
-      result3 = `<p>${result.title}</p>`
-        
-      $("#result3").addClass("show")
-      $("#result3").append(result3)
-    })
-    data.organic_results.forEach(result => {
-            
-      result4 = `<p>${result.title}</p>
-      <a target="_blank" href="${result.url}">${result.url}</a>`
-      
-      $("#result4").addClass("show")
-      $("#result4").append(result4)
-  })
-})
+    $('#hazard').on('click', hazardSearch)
