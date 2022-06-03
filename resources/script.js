@@ -47,7 +47,6 @@ let landing = document.getElementById('landing');
 let submiter = document.getElementById('searchByPicture');
 let searchByCode = document.getElementById('searchByCode');
 let second = document.getElementById('second');
-let cards = document.getElementsByClassName('pageTwo');
 let pageThree = document.getElementsByClassName('pageThree');
 let pizza = document.getElementById('pizza')
 
@@ -85,22 +84,15 @@ searchByCode.addEventListener('click',function(){
 
 
 
-for (let i = 0; i < pageThree.length; i++){
-    pageThree[i].addEventListener('click',function(event){
-        console.log(this.id);
-        console.log(event)
-        third.setAttribute('style','transform: translate(-100%');
-        fourth.setAttribute('style','transform: translate(0%');
-    })
-}
 
-pizza.addEventListener('click', function(){
-    console.log(this.id)
-    let queryTerm = this.id
-    let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=material_synonyms like '%25" + queryTerm + "%25'" 
-      console.log(query)
-      fetchItem(query)
-})
+
+// pizza.addEventListener('click', function(){
+//     console.log(this.id)
+//     let queryTerm = this.id
+//     let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=material_synonyms like '%25" + queryTerm + "%25'" 
+//       console.log(query)
+//       fetchItem(query)
+// })
 
 
 
@@ -130,23 +122,24 @@ const recyclingObject = {
   },
 
   livingRoom: {
-    item: ["book_hardcover", "Pillows and cushions", "Furniture", "Light fixture", "light_bulb_all_types","Coffee table", "Picture frame", "Magazine", "Artificial plants and flowers" ]
+    items: ["book_hardcover", "Pillows and cushions", "Furniture", "Light fixture", "light_bulb_all_types","Coffee table", "Picture frame", "Magazine", "Artificial plants and flowers" ]
   },
 
   bedroom: {
-    item: ["stuffed_animal", "Shoes", "Backpacks & handbags", "Halloween costume", "Mattress",  "clothes", "hangers_plastic", "Electric blanket"]
+    items: ["stuffed_animal", "Shoes", "Backpacks & handbags", "Halloween costume", "Mattress",  "clothes", "hangers_plastic", "Electric blanket"]
   }
   
 }
 
   let secondAncestor = document.getElementById('second-ancestor');
-  
-  let createCategoryTile = (category) => {
+  let thirdAncestor = document.getElementById('third-ancestor');
+
+  let createCategoryTile = (category, page, pageTag) => {
     let parentTile = document.createElement('div');
-    parentTile.classList.add('tile', 'is-parent');
+    parentTile.classList.add('tile', 'is-parent', pageTag);
     parentTile.setAttribute('id', category)
     let article = document.createElement('article');
-    article.classList.add('tile', 'is-child', 'box', 'notification', 'is-danger', 'pageTwo');
+    article.classList.add('tile', 'is-child', 'box', 'notification', 'is-danger');
     let categoryName = document.createElement('p');
     categoryName.classList.add('title', 'has-text-white');
     categoryName.textContent = category;
@@ -155,16 +148,28 @@ const recyclingObject = {
     article.appendChild(categoryName);
     article.appendChild(icon);
     parentTile.appendChild(article);
-    secondAncestor.appendChild(parentTile)
+    page.appendChild(parentTile)
   }
   
-
   for (let category in recyclingObject){
-    createCategoryTile(category)
+    createCategoryTile(category, secondAncestor, 'pageTwo')
   }
-
+  let cards = document.getElementsByClassName('pageTwo');
   for (let i = 0; i < cards.length; i++){
-    cards[i].addEventListener('click',function(){
+    cards[i].addEventListener('click',function(event){
+      let chosenCategory = recyclingObject[this.id].items;
+      console.log(chosenCategory)
+      for (let i = 0; i < chosenCategory.length; i++){
+        createCategoryTile(chosenCategory[i], thirdAncestor, 'pageThree')
+      }
+      for (let i = 0; i < pageThree.length; i++){
+        pageThree[i].addEventListener('click',function(event){
+            console.log(this.id);
+            console.log(event)
+            third.setAttribute('style','transform: translate(-100%');
+            fourth.setAttribute('style','transform: translate(0%');
+        })
+      }
         second.setAttribute('style','transform: translate(-100%');
         third.setAttribute('style','transform: translate(0%');
     })
