@@ -83,12 +83,7 @@ searchByCode.addEventListener('click',function(){
 
 
 
-for (let i = 0; i < cards.length; i++){
-    cards[i].addEventListener('click',function(){
-        second.setAttribute('style','transform: translate(-100%');
-        third.setAttribute('style','transform: translate(0%');
-    })
-}
+
 
 for (let i = 0; i < pageThree.length; i++){
     pageThree[i].addEventListener('click',function(event){
@@ -110,15 +105,14 @@ pizza.addEventListener('click', function(){
 
 
 const recyclingObject = {
-
   kitchen: {
-   items: ["milk_jug", "coffee pods", "plastic_produce_bag", "pop_can", "pizza box", "tissue_box", "hand soap", "dish soap", "paper towel", "Aluminum Foil"],
+    items: ["milk_jug", "coffee pods", "plastic_produce_bag", "pop_can", "pizza box", "tissue_box", "hand soap", "dish soap", "paper towel", "Aluminum Foil"],
   },
 
   garage: {
     items: ["gas can", "oil_filter", "power_tool", "sports_equipment", "wood", "garden_hose", "bicycle_parts", "hardware", "Christmas lights", "Asphalt shingles"]
   },
-   
+
   packaging: {
     items: ["Bubble wrap", "duck tape", "Styrofoam packing peanuts", "Shrink wrap", "Bubble mailer", "Ribbons and bows", "Cardboard"]
   },
@@ -143,4 +137,35 @@ const recyclingObject = {
     item: ["stuffed_animal", "Shoes", "Backpacks & handbags", "Halloween costume", "Mattress",  "clothes", "hangers_plastic", "Electric blanket"]
   }
   
+}
+
+  let secondAncestor = document.getElementById('second-ancestor');
+  
+  let createCategoryTile = (category) => {
+    let parentTile = document.createElement('div');
+    parentTile.classList.add('tile', 'is-parent');
+    parentTile.setAttribute('id', category)
+    let article = document.createElement('article');
+    article.classList.add('tile', 'is-child', 'box', 'notification', 'is-danger', 'pageTwo');
+    let categoryName = document.createElement('p');
+    categoryName.classList.add('title', 'has-text-white');
+    categoryName.textContent = category;
+    let icon = document.createElement('i');
+    icon.classList.add('fa-solid', 'fa-kitchen-set', 'fa-10x');
+    article.appendChild(categoryName);
+    article.appendChild(icon);
+    parentTile.appendChild(article);
+    secondAncestor.appendChild(parentTile)
   }
+  
+
+  for (let category in recyclingObject){
+    createCategoryTile(category)
+  }
+
+  for (let i = 0; i < cards.length; i++){
+    cards[i].addEventListener('click',function(){
+        second.setAttribute('style','transform: translate(-100%');
+        third.setAttribute('style','transform: translate(0%');
+    })
+}
