@@ -1,16 +1,3 @@
-// const input = ""
-// let message;
-
-// mat.forEach(mat => {
-//     if(mat.items.map(name => name.toLowerCase()).includes(input)) {
-//         message = mat.instructions
-//     }
-// });
-
-// document.body.innerHTML += "Result: " + message;
-
-
-
 
 const recyclingObject = {
 
@@ -47,3 +34,60 @@ const recyclingObject = {
     }
     
     }
+
+
+  const recyclingIns = [
+    {
+      instructions1: "Garbage collection", 
+      callAPI: false
+    },
+    {
+      instructions2: "Recycling collection",
+      callAPI: false
+    }, 
+    {
+      instructions3: "Reuse",
+      callAPI: false 
+    },
+    {
+      instructions4: "Recycling Depot drop-off",
+      callAPI: true
+    },
+    {
+      instructions5: "Eco Station drop-off (electronics & appliances)",
+      callAPI: true
+    },
+    {
+      instructions5: "Bottle Depot drop-off",
+      callAPI: true
+    }, 
+    {
+      instructions6: "Compost at home",
+      callAPI: false
+    },
+    {
+      instructions7: "EWMC drop-off",
+      callAPI: true
+    },
+    {
+      instructions8: "Eco Station drop-off (electronics & appliances)",
+      callAPI: true
+    },
+    {
+      instructions8: "Reuse (home renovation materials)",
+      callAPI: false
+    },
+    {
+      instructions9: "Battery retailer drop-off",
+      callAPI: true
+    },
+    {
+      instructions10: "Eco Station drop-off (fees apply)",
+      callAPI: true
+    },
+    {
+      instructions11: "Eco Station drop-off (CFC appliances)",
+      callAPI: true
+    },
+
+  ]
