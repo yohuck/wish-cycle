@@ -91,3 +91,5 @@ const recyclingObject = {
     },
 
   ]
+=======
+>>>>>>> 1071d11d0edc03c60fbcb36184a227a0fe48c0a6
