@@ -8,8 +8,8 @@ let resultElement = document.getElementById('result');
 let input = document.getElementById('search');
 let submit = document.getElementById('submit');
 submit.addEventListener('click', function(event){
-  let queryTerm = input.value
-  let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=material_synonyms like '%25" + queryTerm + "%25'" 
+  let queryTerm = input.value.toUpperCase();
+  let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25" + queryTerm + "%25'" 
     console.log(query)
     fetchItem(query)
 })
@@ -24,6 +24,7 @@ $.ajax({
       "$$app_token" : "9Em3vkFlkE4FM14o46mGdx0ae"
     }
 }).done(function(data) {
+  console.log(data)
   const results = data[0];
   for (const item in results) {
     const infoElem = document.createElement('p');
@@ -39,6 +40,8 @@ $.ajax({
       resultElement.append(otherResultLink)
     }
   }
+  landing.setAttribute('style','transform: translate(-100%');
+  fourth.setAttribute('style','transform: translate(0%');
 
 });
 
