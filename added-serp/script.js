@@ -85,6 +85,22 @@ searchByCode.addEventListener('click',function(){
     second.setAttribute('style','transform: translate(0%)')
 })
 
+let saveBtn = document.getElementById('saveDate')
+let datePicker = document.getElementById('datePicker')
+saveBtn.addEventListener('click', function(e){
+    e.preventDefault()
+    let savedDate = datePicker.value
+    localStorage.setItem('date', savedDate)
+    renderdate()
+})
+let renderSaved = document.getElementById('savedDate')
+let renderdate = () => {
+    let grabPast = localStorage.getItem('date')
+    renderSaved.append(grabPast)
+    console.log(grabPast)
+}
+
+renderdate()
 
 
 
