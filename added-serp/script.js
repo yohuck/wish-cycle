@@ -95,6 +95,7 @@ saveBtn.addEventListener('click', function(e){
 })
 let renderSaved = document.getElementById('savedDate')
 let renderdate = () => {
+    renderSaved.innerHTML = ''
     let grabPast = localStorage.getItem('date')
     renderSaved.append(grabPast)
     console.log(grabPast)
