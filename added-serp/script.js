@@ -14,7 +14,9 @@ let submit = document.getElementById('submit');
 let resultLabel = document.getElementById("resultLabel")
 let loader = document.getElementById('loader')
 let result2 = document.getElementById('result1')
-let location1 = document.getElementById('location1')
+let location1 = document.getElementById('location1');
+let resultsByCode = document.getElementById('resultLabelbyCode')
+let resultsByCodeTitle = document.getElementById('resultLabelbyCodeTitle')
 submit.addEventListener('click', function(event){
   let queryTerm = input.value.toUpperCase()
   let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25" + queryTerm + "%25'" 
@@ -503,14 +505,10 @@ const recyclingSymbols = {
         article.classList.add('tile', 'is-child', 'box', 'notification', 'is-secondary');
         let categoryName = document.createElement('p');
         categoryName.classList.add('title', 'has-text-white');
-        categoryName.textContent = recyclingSymbols[codes].Name;
-        let categoryCode = document.createElement('p');
-        categoryCode.classList.add('title', 'has-text-white');
-        categoryCode.textContent = recyclingSymbols[codes].code;
+        categoryName.textContent = recyclingSymbols[codes].Name + ' ' + recyclingSymbols[codes].code;
         let icon = document.createElement('i');
         icon.classList.add('fa-solid', 'fa-10x', 'is-third', 'fa-recycle');
         article.appendChild(categoryName);
-        article.appendChild(categoryCode)
         article.appendChild(icon);
         parentTile.appendChild(article);
         searchByCodeAncestor.appendChild(parentTile);
@@ -522,11 +520,50 @@ const recyclingSymbols = {
             generateFourthByCode(searchByCodeQuery);
             searchByCodeContainer.setAttribute('style','transform: translate(-100%');
             fourthbyCodeContainer.setAttribute('style','transform: translate(0%');
-
         })
       }
     }
 
 let generateFourthByCode = code => {
   console.log(code)
+  let codeSwitch;
+  switch (code) {
+    case '1': codeSwitch = 'codeOne';
+      break;
+    case '2': codeSwitch = 'codeTwo';
+      break;
+    case '3': codeSwitch = 'codeThree';
+      break;
+    case '4': codeSwitch = 'codeFour';
+      break;
+    case '5': codeSwitch = 'codeFive';
+      break;
+    case '6': codeSwitch = 'codeSix';
+      break;
+    case '7': codeSwitch = 'codeSeven';
+      break;
+    default:
+      break;
+  }
+  console.log(codeSwitch)
+  let byCodeParent = document.createElement('p')
+  byCodeParent.textContent = code + ' ' + recyclingSymbols[codeSwitch].Name;
+  let byCodeInfo = document.createElement('p');
+  byCodeInfo.classList.add('byCodeInfo')
+  byCodeInfo.textContent = recyclingSymbols[codeSwitch].FullName;
+  let commonItems = document.createElement('ul');
+  commonItems.textContent = 'Common Examples:'
+  commonItems.classList.add('byCodeList')
+  for (let i = 0; i < recyclingSymbols[codeSwitch].CommonItems.length; i++){
+    let commonItem = document.createElement('li');
+    commonItem.textContent = recyclingSymbols[codeSwitch].CommonItems[i];
+    commonItems.appendChild(commonItem)
+  };
+  let byCodeNotes = document.createElement('p');
+  byCodeNotes.textContent = recyclingSymbols[codeSwitch].Notes
+  byCodeNotes.classList.add('byCodeNotes')
+  resultsByCodeTitle.appendChild(byCodeParent)
+  resultsByCodeTitle.appendChild(byCodeInfo)
+  resultsByCode.appendChild(commonItems)
+  resultsByCode.appendChild(byCodeNotes)
 }
