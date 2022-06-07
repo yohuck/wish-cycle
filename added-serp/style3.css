@@ -32,7 +32,7 @@ body {
     transition: 0.7s ease-in-out;
 }
 
-#second, #third, #fourth, #fifth{
+#second, #third, #fourth, #fifth, #searchByCodeContainer{
     position: absolute;
     top: 0;
     left: 0;
