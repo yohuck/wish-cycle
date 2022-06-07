@@ -102,6 +102,28 @@ let renderdate = () => {
 
 renderdate()
 
+let goBackBtn = document.getElementById('startOver')
+let goBackBtn2 = document.getElementById('startOver2')
+let goBackBtn3 = document.getElementById('startOver3')
+
+goBackBtn.addEventListener('click', function(){
+      second.setAttribute('style','transform: translate(-100%)');
+      landing.setAttribute('style','transform: translate(0%)');
+    })
+
+goBackBtn2.addEventListener('click', function(){
+        third.setAttribute('style','transform: translate(-100%)');
+        second.setAttribute('style','transform: translate(0%)');
+      })
+
+goBackBtn3.addEventListener('click', function(){
+        fourth.setAttribute('style','transform: translate(-100%)');
+        third.setAttribute('style','transform: translate(0%)');
+      })
+    
+
+
+
 
 
 

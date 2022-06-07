@@ -85,8 +85,8 @@ searchByCode.addEventListener('click',function(){
 })
 
 goBackBtn.addEventListener('click', function(){
-  // second.setAttribute('style','transform: translate(100%)');
-  // pageThree.setAttribute('style','transform: translate(100%)');
+//   second.setAttribute('style','transform: translate(100%)');
+//   pageThree.setAttribute('style','transform: translate(100%)');
 })
 
 
