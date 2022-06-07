@@ -11,14 +11,19 @@
 </head>
 <body>
     <section class="hero is-first is-fullheight" id="landing">
-        <form> 
-            <input type="date" id="datePicker"></input>
-            <button id="saveDate">save recycling date</button>
-        </form>
-        <p class="has-text-white">Your next recycling date is: <span id="savedDate"></span></p>
-        <div class="hero-body">
+        <div class="level-item pt-6">
+            <form> 
+                <input type="date" id="datePicker"></input>
+                <button id="saveDate">save recycling date</button>
+            </form>
+            <div>
+                <p class="has-text-white">Your next recycling date is: </p>
+                <p id="savedDate" class="has-text-white"></p>
+            </div>
+        </div>
+        <div class="hero-body level-item is-mobile">
             <div class="">
-                <p class="title">
+                <p class="title mb-5">
                 Recycle Better
                 </p>
             <p class="subtitle has-text-white">
@@ -49,8 +54,8 @@
         <div class="hero-body">
             <div class="">
                 <div class="tile is-ancestor" id="second-ancestor">
-                    
-                  </div>
+                </div>
+                <button class="button is-link is-light" id="startOver">Back</button>  
             </div>
         </div>
     </section>
@@ -59,6 +64,7 @@
           <div class="">
             <div class="tile is-ancestor" id="third-ancestor">
             </div>
+            <button class="button is-link is-light" id="startOver2">Back</button>  
       </div>
       </div>
   </section>
@@ -72,6 +78,7 @@
               <i class="fa-solid fa-recycle fa-10x is-third"></i>
               <div class="content">
               </div>
+              <button class="button is-link is-light" id="startOver3">Back</button> 
             </article>
           </div>
         </div>
@@ -102,7 +109,8 @@
                 <i class="fa-solid fa-recycle fa-10x"></i>
                 <div class="content">
                 </div>
-              </article>
+                 </article>
+              <button class="button is-link is-light" id="startOver3">Back</button> 
             </div>
           </div>
       </div>
