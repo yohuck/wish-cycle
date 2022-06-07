@@ -261,6 +261,7 @@ const recyclingObject = {
             fetchItem(query)
             third.setAttribute('style','transform: translate(-100%');
             fourth.setAttribute('style','transform: translate(0%');
+            resultLabel.textContent = queryTerm
         })
       }
         second.setAttribute('style','transform: translate(-100%');
