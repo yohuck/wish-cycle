@@ -13,7 +13,7 @@ let input = document.getElementById('search');
 let submit = document.getElementById('submit');
 let resultLabel = document.getElementById("resultLabel")
 let loader = document.getElementById('loader')
-let result2 = document.getElementById('result1')
+let result2 = document.getElementById('result2')
 let location1 = document.getElementById('location1');
 let resultsByCode = document.getElementById('resultLabelbyCode')
 let resultsByCodeTitle = document.getElementById('resultLabelbyCodeTitle')
@@ -116,6 +116,7 @@ let goBackBtn2 = document.getElementById('startOver2')
 let goBackBtn3 = document.getElementById('startOver3')
 let goBackBtn4 = document.getElementById('startOver4')
 let goBackBtn5 = document.getElementById('startOverFourByCode');
+let goBackBtn6 = document.getElementById('startOver5')
 
 goBackBtn.addEventListener('click', function(){
       second.setAttribute('style','transform: translate(100%)');
@@ -135,11 +136,19 @@ goBackBtn3.addEventListener('click', function(){
 goBackBtn4.addEventListener('click', function(){
         searchByCodeContainer.setAttribute('style','transform: translate(100%)');
         landing.setAttribute('style','transform: translate(0%)');
+        
       })
       
 goBackBtn5.addEventListener('click', function(){
         fourthByCode.setAttribute('style','transform: translate(100%)');
         searchByCodeContainer.setAttribute('style','transform: translate(0%)');
+      })
+
+goBackBtn6.addEventListener('click', function(){
+        fifth.setAttribute('style','transform: translate(100%)');
+        landing.setAttribute('style','transform: translate(0%)');
+        loader.setAttribute('style', 'display: block')
+        result2.innerHTML = []
       })
     
 
@@ -295,7 +304,9 @@ const recyclingObject = {
 
 var generalSearch = () =>{
     const successCallback = (position) => {
+        loader.style.display = 'block'
         fourth.setAttribute('style','transform: translate(-100%)');
+        fourthbyCodeContainer.setAttribute('style','transform:translate(-100%)')
         fifth.setAttribute('style','transform: translate(0%)')
         console.log(position);
         var latitude = position.coords.latitude
@@ -325,8 +336,8 @@ var generalSearch = () =>{
                         <a class="is-third">${result.link}</a><br>`
                         
                     
-                    $("#result1").append(result1)
-                    result2.removeChild(loader)
+                    $("#result2").append(result1)
+                    loader.setAttribute('style', 'display:none')
                 })     
             })  
             })
@@ -341,6 +352,7 @@ var generalSearch = () =>{
 var electronicSearch = () =>{
     const successCallback2 = (position) => {
         fourth.setAttribute('style','transform: translate(-100%)');
+        fourthbyCodeContainer.setAttribute('style','transform:translate(-100%)')
         fifth.setAttribute('style','transform: translate(0%)')
         console.log(position);
         var latitude = position.coords.latitude
@@ -371,8 +383,8 @@ var electronicSearch = () =>{
                         <p>${result.extensions[4]}</p>
                         <a>${result.link}</a><br>`
                     
-                    $("#result1").append(result1)
-                    result2.removeChild(loader)
+                    $("#result2").append(result1)
+                    loader.setAttribute('style', 'display:none')
                 })     
             })  
             })
@@ -389,6 +401,7 @@ var electronicSearch = () =>{
 var hazardSearch = () =>{
     const successCallback3 = (position) => {
         fourth.setAttribute('style','transform: translate(-100%)');
+        fourthbyCodeContainer.setAttribute('style','transform:translate(-100%)')
         fifth.setAttribute('style','transform: translate(0%)')
         console.log(position);
         var latitude = position.coords.latitude
@@ -419,8 +432,8 @@ var hazardSearch = () =>{
                         <p>${result.extensions[4]}</p>
                         <a>${result.link}</a><br>`
     
-                    $("#result1").append(result1)
-                    result2.removeChild(loader)
+                    $("#result2").append(result1)
+                    loader.setAttribute('style', 'display:none')
                 })     
             })  
             })
@@ -432,6 +445,10 @@ var hazardSearch = () =>{
     
     navigator.geolocation.getCurrentPosition(successCallback3,errorCallback)
     }
+var resetSerp = () => {
+    result2.textContent = []
+    loader.setAttribute('style', 'display:block')
+}
 
 
 // Search By Code Object
@@ -497,6 +514,7 @@ const recyclingSymbols = {
 
 
     let generateSearchByCodeOptions = () => {
+        searchByCodeAncestor.innerHTML = []
       for (codes in recyclingSymbols){
         let parentTile = document.createElement('div');
         parentTile.classList.add('tile', 'is-parent', 'searchByCodePage');
@@ -525,6 +543,8 @@ const recyclingSymbols = {
     }
 
 let generateFourthByCode = code => {
+    resultsByCodeTitle.innerHTML = []
+    resultsByCode.innerHTML = []
   console.log(code)
   let codeSwitch;
   switch (code) {
