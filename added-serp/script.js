@@ -7,6 +7,7 @@ let landing = document.getElementById('landing');
 let fourth = document.getElementById('fourth');
 let searchByCodeContainer = document.getElementById('searchByCodeContainer');
 let searchByCodeAncestor = document.getElementById('searchByCode-ancestor');
+let fourthbyCodeContainer = document.getElementById('fourthByCode')
 let input = document.getElementById('search');
 let submit = document.getElementById('submit');
 let resultLabel = document.getElementById("resultLabel")
@@ -110,6 +111,7 @@ let goBackBtn = document.getElementById('startOver')
 let goBackBtn2 = document.getElementById('startOver2')
 let goBackBtn3 = document.getElementById('startOver3')
 let goBackBtn4 = document.getElementById('startOver4')
+let goBackBtn5 = document.getElementById('startOverFourByCode');
 
 goBackBtn.addEventListener('click', function(){
       second.setAttribute('style','transform: translate(100%)');
@@ -129,6 +131,11 @@ goBackBtn3.addEventListener('click', function(){
 goBackBtn4.addEventListener('click', function(){
         searchByCodeContainer.setAttribute('style','transform: translate(100%)');
         landing.setAttribute('style','transform: translate(0%)');
+      })
+      
+goBackBtn5.addEventListener('click', function(){
+        fourthByCode.setAttribute('style','transform: translate(100%)');
+        searchByCodeContainer.setAttribute('style','transform: translate(0%)');
       })
     
 
@@ -487,7 +494,6 @@ const recyclingSymbols = {
 
     let generateSearchByCodeOptions = () => {
       for (codes in recyclingSymbols){
-        console.log(recyclingSymbols[codes])
         let parentTile = document.createElement('div');
         parentTile.classList.add('tile', 'is-parent', 'searchByCodePage');
         parentTile.setAttribute('id', recyclingSymbols[codes].code)
@@ -505,6 +511,20 @@ const recyclingSymbols = {
         article.appendChild(categoryCode)
         article.appendChild(icon);
         parentTile.appendChild(article);
-        searchByCodeAncestor.appendChild(parentTile)
+        searchByCodeAncestor.appendChild(parentTile);
+      };
+      let pageTwoByCode = document.getElementsByClassName('searchByCodePage');
+      for (let i = 0; i < pageTwoByCode.length; i++){
+        pageTwoByCode[i].addEventListener('click',function(event){
+            let searchByCodeQuery = this.id
+            generateFourthByCode(searchByCodeQuery);
+            searchByCodeContainer.setAttribute('style','transform: translate(-100%');
+            fourthbyCodeContainer.setAttribute('style','transform: translate(0%');
+
+        })
       }
     }
+
+let generateFourthByCode = code => {
+  console.log(code)
+}
