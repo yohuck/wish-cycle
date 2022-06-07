@@ -52,6 +52,7 @@ let searchByCode = document.getElementById('searchByCode');
 let second = document.getElementById('second');
 let pageThree = document.getElementsByClassName('pageThree');
 let pizza = document.getElementById('pizza')
+let goBackBtn = document.getElementById('startOver');
 
 
 let searchButtons = [submiter, searchByCode];
@@ -81,6 +82,11 @@ submiter.addEventListener('click',function(){
 searchByCode.addEventListener('click',function(){
     landing.setAttribute('style','transform: translate(-100%)');
     second.setAttribute('style','transform: translate(0%)')
+})
+
+goBackBtn.addEventListener('click', function(){
+  // second.setAttribute('style','transform: translate(100%)');
+  // pageThree.setAttribute('style','transform: translate(100%)');
 })
 
 
