@@ -22,3 +22,26 @@ When a user arrives at the landing page, they have a few different ways to searc
 The landing page features a help me section next to the search field. When clicked, the user is taken to a page of step-by-step instructions on how to use the application. 
 
 Each page features a back button to take the user to the previous page. 
+
+Technologies used:
+
+HTML
+CSS
+Bulma
+JavaScript
+JQuery
+Google
+
+Data: 
+https://data.edmonton.ca/Environmental-Services/Waste-Recycling-Material-List/gtej-pcij/data
+
+API:
+Open Weather
+Value Serp
+Geolocation API
+
+
+
+
+
+
