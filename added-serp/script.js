@@ -3,6 +3,7 @@ let key = '4okwp6xyq58qv182lxa5x55u7'
 let secretKey = '4hgvzbv2wm36miayquqhapo6x5fudfo8f5dvkid29m6m6o4ddz'
 let appToken = '9Em3vkFlkE4FM14o46mGdx0ae'
 let resultElement = document.getElementById('result');
+let resultContent = document.getElementById('content')
 let landing = document.getElementById('landing');
 let fourth = document.getElementById('fourth');
 let searchByCodeContainer = document.getElementById('searchByCodeContainer');
@@ -34,13 +35,14 @@ $.ajax({
       "$$app_token" : "9Em3vkFlkE4FM14o46mGdx0ae"
     }
 }).done(function(data) {
+    resultContent.innerHTML= []
   const results = data[0];
   console.log('got-here')
   console.log(results)
   for (const item in results) {
     const infoElem = document.createElement('p');
     infoElem.textContent = data[0][item];
-    resultElement.append(infoElem)
+    resultContent.append(infoElem)
   }
   if (data.length > 1){
     for (let i = 1; i < data.length; i++){
@@ -48,7 +50,7 @@ $.ajax({
       let otherResultLink = document.createElement('a');
       otherResultLink.setAttribute('href','#');
       otherResultLink.textContent = otherResult + " ";
-      resultElement.append(otherResultLink)
+      resultContent.append(otherResultLink)
     }
   }
 
