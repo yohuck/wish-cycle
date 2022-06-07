@@ -4,7 +4,10 @@ let secretKey = '4hgvzbv2wm36miayquqhapo6x5fudfo8f5dvkid29m6m6o4ddz'
 let appToken = '9Em3vkFlkE4FM14o46mGdx0ae'
 let resultElement = document.getElementById('result');
 let landing = document.getElementById('landing');
-let fourth = document.getElementById('fourth')
+let fourth = document.getElementById('fourth');
+let searchByCodeContainer = document.getElementById('searchByCodeContainer');
+let searchByCodeAncestor = document.getElementById('searchByCode-ancestor');
+let fourthbyCodeContainer = document.getElementById('fourthByCode')
 let input = document.getElementById('search');
 let submit = document.getElementById('submit');
 let resultLabel = document.getElementById("resultLabel")
@@ -82,7 +85,8 @@ submiter.addEventListener('click',function(){
 
 searchByCode.addEventListener('click',function(){
     landing.setAttribute('style','transform: translate(-100%)');
-    second.setAttribute('style','transform: translate(0%)')
+    searchByCodeContainer.setAttribute('style','transform: translate(0%)');
+    generateSearchByCodeOptions()
 })
 
 let saveBtn = document.getElementById('saveDate')
@@ -106,20 +110,32 @@ renderdate()
 let goBackBtn = document.getElementById('startOver')
 let goBackBtn2 = document.getElementById('startOver2')
 let goBackBtn3 = document.getElementById('startOver3')
+let goBackBtn4 = document.getElementById('startOver4')
+let goBackBtn5 = document.getElementById('startOverFourByCode');
 
 goBackBtn.addEventListener('click', function(){
-      second.setAttribute('style','transform: translate(-100%)');
+      second.setAttribute('style','transform: translate(100%)');
       landing.setAttribute('style','transform: translate(0%)');
     })
 
 goBackBtn2.addEventListener('click', function(){
-        third.setAttribute('style','transform: translate(-100%)');
+        third.setAttribute('style','transform: translate(100%)');
         second.setAttribute('style','transform: translate(0%)');
       })
 
 goBackBtn3.addEventListener('click', function(){
-        fourth.setAttribute('style','transform: translate(-100%)');
+        fourth.setAttribute('style','transform: translate(100%)');
         third.setAttribute('style','transform: translate(0%)');
+      })
+    
+goBackBtn4.addEventListener('click', function(){
+        searchByCodeContainer.setAttribute('style','transform: translate(100%)');
+        landing.setAttribute('style','transform: translate(0%)');
+      })
+      
+goBackBtn5.addEventListener('click', function(){
+        fourthByCode.setAttribute('style','transform: translate(100%)');
+        searchByCodeContainer.setAttribute('style','transform: translate(0%)');
       })
     
 
@@ -242,6 +258,7 @@ const recyclingObject = {
       console.log('hello')
       let chosenCategoryCamel = recyclingObject[this.id]
       console.log(chosenCategoryCamel)
+      thirdAncestor.innerHTML = [];
       for (let i = 0; i < chosenCategory.length; i++){
         createCategoryTile(chosenCategory[i], thirdAncestor, 'pageThree');
         let iconNeeded = document.getElementById(chosenCategory[i]);
@@ -411,3 +428,103 @@ var hazardSearch = () =>{
     
     navigator.geolocation.getCurrentPosition(successCallback3,errorCallback)
     }
+
+
+// Search By Code Object
+const recyclingSymbols = {
+  codeOne: {
+      code: '1',
+      Name: 'PETE',
+      FullName: 'Polyethylene Terephthalate',
+      CommonItems: ["soft drinks", "water bottle", "single use itmes"],
+      Notes: "recycled by curbside pickup, rinse and clean of any food, remove caps",
+  },
+
+  codeTwo: {
+      code: '2',
+      Name: 'HDPE',
+      FullName: 'High Density Polyethylene',
+      CommonItems: ["milk jugs", "juice bottles", "household cleaner bottles", "motor oil bottles", "cereal box liners"],
+      Notes: "recycled by curbside pickup ",
+  },
+
+  codeThree: {
+      code: '3',
+      Name: 'PVC',
+      FullName: 'Polyvinyl Choride', 
+      CommonItems: ["blister packaging", "siding", "wire jacketing", "piping"],
+      Notes: "can rarly be recycled, ask local waste management if it can be thrown in the trash or dropped off at a collection center",
+  },
+
+  codeFour: {
+      code: '4',
+      Name: 'LDPE',
+      FullName: 'Low Density Polyethylene',
+      CommonItems: ["Squeezable bottles", "frozen food bags", "bread bags","shopping bags"],
+      Notes: "Not recyclable, return shopping bags to the store to be reused",
+  },
+  codeFive: {
+      code: '5',
+      Name: 'PP',
+      FullName: 'Polypropylene',
+      CommonItems: ["yogurt containers", "syrup bottles","straws", "caps"],
+      Notes: "curbside progrms may recycle these, clean of any food or product, throw cap in the garbage",
+  },
+
+  codeSix: {
+      code: '6',
+      Name: 'PS',
+      FullName: 'Polystryrene',
+      CommonItems: ["disposable plates", "egg containers", "meat tray", "carry-out containers", "compact disk tray", "styrofoam cups"],
+      Notes: "Not recyclable, place in a bag and squeeze the air out and thorw away",
+  },
+
+  codeSeven: {
+      code: '7',
+      Name: 'Miscellaneous',
+      FullName: 'Other',
+      CommonItems: ["3-5 gallon water bottles", "bullet proof material", "sunglasses","DVD","ipod and computer cases","nylon"],
+      Notes: "Not recyclable",
+  }
+  }   
+  
+  
+
+
+
+    let generateSearchByCodeOptions = () => {
+      for (codes in recyclingSymbols){
+        let parentTile = document.createElement('div');
+        parentTile.classList.add('tile', 'is-parent', 'searchByCodePage');
+        parentTile.setAttribute('id', recyclingSymbols[codes].code)
+        let article = document.createElement('article');
+        article.classList.add('tile', 'is-child', 'box', 'notification', 'is-secondary');
+        let categoryName = document.createElement('p');
+        categoryName.classList.add('title', 'has-text-white');
+        categoryName.textContent = recyclingSymbols[codes].Name;
+        let categoryCode = document.createElement('p');
+        categoryCode.classList.add('title', 'has-text-white');
+        categoryCode.textContent = recyclingSymbols[codes].code;
+        let icon = document.createElement('i');
+        icon.classList.add('fa-solid', 'fa-10x', 'is-third', 'fa-recycle');
+        article.appendChild(categoryName);
+        article.appendChild(categoryCode)
+        article.appendChild(icon);
+        parentTile.appendChild(article);
+        searchByCodeAncestor.appendChild(parentTile);
+      };
+      let pageTwoByCode = document.getElementsByClassName('searchByCodePage');
+      for (let i = 0; i < pageTwoByCode.length; i++){
+        pageTwoByCode[i].addEventListener('click',function(event){
+            let searchByCodeQuery = this.id
+            generateFourthByCode(searchByCodeQuery);
+            searchByCodeContainer.setAttribute('style','transform: translate(-100%');
+            fourthbyCodeContainer.setAttribute('style','transform: translate(0%');
+
+        })
+      }
+    }
+
+let generateFourthByCode = code => {
+  console.log(code)
+}
