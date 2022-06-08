@@ -274,7 +274,7 @@ const recyclingObject = {
     categoryName.classList.add('title', 'has-text-white');
     categoryName.textContent = category;
     let icon = document.createElement('i');
-    icon.classList.add('fa-solid', 'fa-10x', 'is-third');
+    icon.classList.add('fa-solid', 'fa-8x', 'is-third');
     article.appendChild(categoryName);
     article.appendChild(icon);
     parentTile.appendChild(article);
@@ -553,7 +553,7 @@ const recyclingSymbols = {
         categoryName.classList.add('title', 'has-text-white');
         categoryName.textContent = recyclingSymbols[codes].Name + ' ' + recyclingSymbols[codes].code;
         let icon = document.createElement('i');
-        icon.classList.add('fa-solid', 'fa-10x', 'is-third', 'fa-recycle');
+        icon.classList.add('fa-solid', 'fa-8x', 'is-third', 'fa-recycle');
         article.appendChild(categoryName);
         article.appendChild(icon);
         parentTile.appendChild(article);
