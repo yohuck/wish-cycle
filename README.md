@@ -54,7 +54,8 @@ Each page features a back button to take the user to the previous page.
 -https://data.edmonton.ca/Environmental-Services/Waste-Recycling-Material-List/gtej-pcij/data
 
 
+![Untitled_ Jun 8, 2022 3_44 PM (2)](https://user-images.githubusercontent.com/103149149/172724210-47d4b641-a39d-4be8-a289-920fdbddb0ba.gif)
 
-https://drive.google.com/file/d/1vwbqI3u5l_MmvXcvIT-ETaFIKftRW2A9/view
+
 
 
