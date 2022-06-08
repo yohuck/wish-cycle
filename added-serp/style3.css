@@ -8,9 +8,7 @@
     text-align: center;
 }
 
-body {
-    /* background-color: aqua; */
-}
+
 .is-first{
     background-color: #007000;
 }
@@ -28,7 +26,6 @@ body {
 }
 
 #landing{
-    /* position: fixed; */
     transition: 0.7s ease-in-out;
 }
 
@@ -50,11 +47,6 @@ body {
     transition: 0.7s ease-in-out;
 }
 
-#fourth{
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-}
 
 .hero{
     width: 100vw;
@@ -82,7 +74,9 @@ body {
 }
 
 .is-child:hover, .is-child:focus{
-    box-shadow: 5px 5px 5px rgba(38, 35, 35, 0.519);
+    -webkit-box-shadow:inset 0px 0px 0px 10px #007000;
+    -moz-box-shadow:inset 0px 0px 0px 10px #007000;
+    box-shadow:inset 0px 0px 0px 10px #007000;
 }
 
 
@@ -157,7 +151,6 @@ section{
 
 .tile{
     width: 100%;
-    /* max-width: 500px; */
 }
 
 #infoButton{
@@ -191,8 +184,6 @@ section{
     width: 100%;
     transform: translateY(-100%);
     transition: 0.5s ease-in-out;
-    /* align-items: center;
-    justify-content: center; */
 }
 
 
@@ -207,4 +198,32 @@ form{
 
 .dateStuff{
     margin: 0.5rem;
+}
+
+article{
+    display: flex;
+}
+
+.is-grouped{
+    margin-top: -0.75rem;
+    height: 20rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:flex-start;
+}
+
+.is-grouped .control{
+    margin-top: 1rem;
+}
+
+.control{
+    width: 100%;
+    flex-wrap: wrap;
+    display: block;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+
+button{
+    margin: 0.25rem;
 }
