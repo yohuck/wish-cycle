@@ -265,3 +265,8 @@ button{
     align-items: center;
     color: #007000;
 }
+
+#modalText{
+    font-size: 2rem;
+    font-weight: bold;
+}
