@@ -42,9 +42,9 @@ body {
 }
 
 #fourth{
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .hero{
@@ -139,4 +139,14 @@ body {
 section{
     max-height: 100vh;
     overflow: auto;
+}
+
+.hero-body{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tile{
+    width: 100%;
+    /* max-width: 500px; */
 }
