@@ -173,7 +173,7 @@ const recyclingObject = {
     Kitchen: {
       name: 'Kitchen',
       items: ["milk_jug", "coffee pods", "plastic_produce_bag", "pop_can", "pizza box", "tissue_box", "hand soap", "dish soap", "paper towel", "Aluminum Foil"],
-      itemNames: ['Milk Jug', 'Coffee Pods', "Plastic Produce Bag", 'Beverage Can', "Pizza Box", 'Tissue Box', "Hand Soap", "Dish Soap", "Paper Towel", "Aluminum Foil"],
+      itemNames: ['Plastic Bottle', 'Coffee Pod', "Plastic Bag", 'Pop Can', "Pizza Box", 'Tissue Box', "Hand Soap", "Plastic Container", "Paper Towel", "Aluminum Foil"],
       icons: ['fa-jug', 'fa-coffee-beans', 'fa-sack', 'fa-can-food', 'fa-pizza', 'fa-box-tissue', 'fa-pump-soap', 'fa-jug-detergent', 'fa-scroll', 'fa-sheet-plastic'],
       icon: 'fa-kitchen-set',
     },
@@ -181,7 +181,7 @@ const recyclingObject = {
     Garage: {
       name: 'Garage',
       items: ["gas can", "oil_filter", "power_tool", "sports_equipment", "wood", "garden_hose", "bicycle_parts", "hardware", "Christmas lights", "Asphalt shingles"],
-      itemNames: ["Gas Can", "Oil Filter", "Power Tools", "Sports Equipment", "Wood", "Garden Hose", "Bicycle Parts", "Hardware", "Holiday Lights", "Asphalt Shingles"],
+      itemNames: ["Gasoline", "Oil Filter", "Power Tool", "Sports Equipment", "Wood", "Garden Hose", "Bicycle Parts", "Screws \u0026 Nails", "Christmas Lights", "Asphalt Shingles"],
       icons: ['fa-gas-pump', 'fa-oil-can-drip', 'fa-screwdriver-wrench', 'fa-basketball', 'fa-fence', 'fa-hose', 'fa-bicycle', 'fa-screwdriver-wrench', 'fa-lights-holiday', 'fa-chimney'],
       icon: 'fa-garage-open',
     },
@@ -197,7 +197,7 @@ const recyclingObject = {
     Electronics: {
       name: 'Electronics',
       items: ["audio_cassette_tape_case", "vcr_player", "dvd", "Computer monitor", "calculator", "CD player", "headphones", "Computer cables", "Camera", "television" ],
-      itemNames: ["Cassette Tape Case", "VCR/DVD/Media Player", "DVD", "Computer Monitor", "Calculator", "CD Player", "Headphones", "Computer Cables", "Camera", "Television"],
+      itemNames: ["Cassette Tape Case", "VCR", "DVD", "Computer Monitor", "Calculator", "CD Player", "Headphones", "Computer Cables", "Camera", "Television"],
       icons: ['fa-cassette-tape', 'fa-film-simple', 'fa-compact-disc', 'fa-computer', 'fa-calculator', 'fa-disc-drive', 'fa-headphones', 'fa-code-branch', 'fa-camera', 'fa-tv'],
       icon: 'fa-plug-circle-bolt'
     },
@@ -205,7 +205,7 @@ const recyclingObject = {
     Hazardous: {
       name: 'Hazardous',
       items: ["pesticide_garden_chemicals_fertilizer", "old paint", "Motor oil", "mercury_thermometer", "Pool chemicals",  "Aerosol can (empty)"],
-      itemNames: ["Pesticides, Garden Chemicals, Fertilizer", "Paint", "Motor Oil", "Mercury Thermometer", "Pool Chemicals",  "Aerosol Can"],
+      itemNames: ["Pesticide", "Paint", "Motor Oil", "Thermometer (Mercury)", "Pool Chemicals",  "Aerosol Can"],
       icons: ['fa-flask-round-poison', 'fa-fill-drip', 'fa-oil-can-drip', 'fa-temperature-half', 'fa-person-swimming', 'fa-spray-can'],
       icon: 'fa-biohazard'
     },
@@ -213,7 +213,7 @@ const recyclingObject = {
     Bathroom: {
       name: 'Bathroom',
       items: ["toilet_seat", "plastic_detergent_bottle", "curtain_rod_wood_or_plastic", "Shower curtain rings", "deodorant", "Toothpaste tube", "toothbrush", "razor_disposable", "Shampoo bottle", "shaving_cream_can_empty"],
-      itemNames: ["Toilet Seat", "Plastic Detergent Bottle", "Curtain Rod (Wood or Plastic)", "Shower Curtain Rings", "Deodorant", "Toothpaste Tube", "Toothbrush", "Disposable Razor", "Shampoo Bottle", "Shaving Cream Can"],
+      itemNames: ["Toilet Seat", "Hand Soap", "Curtain Rod (Wood or Plastic)", "Shower Curtain Rings", "Deodorant", "Toothpaste Tube", "Toothbrush", "Razor (Disposable)", "Shampoo Bottle", "Shaving Cream Can"],
       icons: ['fa-toilet', 'fa-jug-detergent', 'fa-booth-curtain', 'fa-ring', 'fa-shower', 'fa-toothbrush', 'fa-teeth', 'fa-user-shakespeare', 'fa-jug-detergent', 'fa-pump-soap'],
       icon: ['fa-bath']
     },
@@ -221,7 +221,7 @@ const recyclingObject = {
     Living_Room: {
       name: 'Living Room',
       items: ["book_hardcover", "Pillows and cushions", "Furniture", "Light fixture", "light_bulb_all_types","Coffee table", "Picture frame", "Magazine", "Artificial plants and flowers"],
-      itemNames: ["Hardcover Book", "Pillows and Cushions", "Furniture", "Light Fixture", "Light Bulb","Coffee Table", "Picture Frame", "Magazine", "Artificial Plants"],
+      itemNames: ["Book (Hardcover)", "Pillows and Cushions", "Furniture", "Light Fixture", "Lightbulb","Coffee Table", "Picture Frame", "Magazine", "Artificial Plants"],
       icons: ['fa-book-sparkles', 'fa-mattress-pillow', 'fa-couch', 'fa-lamp-floor', 'fa-lightbulb-on', 'fa-table-picnic', 'fa-frame', 'fa-book', 'fa-leaf'],
       icon: 'fa-couch'
     },
@@ -229,7 +229,7 @@ const recyclingObject = {
     Bedroom: {
       name: 'Bedroom',
       items: ["stuffed_animal", "Shoes", "Backpacks & handbags", "Halloween costume", "Mattress",  "clothes", "hangers_plastic", "Electric blanket"],
-      itemNames: ["Stuffed Animal", "Shoes", "Backpacks & Handbags", "Halloween Costume", "Mattress",  "Clothes", "Plastic Hanger", "Electric Blanket"],
+      itemNames: ["Stuffed Animal", "Shoes", "Backpacks & Handbags", "Costume", "Mattress",  "Clothes", "Clothes Hanger", "Electric Blanket"],
       icons: ['fa-teddy-bear', 'fa-boot', 'fa-backpack', 'fa-mask', 'fa-mattress-pillow', 'fa-shirt', 'fa-clothes-hanger', 'fa-blanket-fire'],
       icon: 'fa-bed-front'
     }
@@ -283,7 +283,7 @@ const recyclingObject = {
       for (let i = 0; i < pageThree.length; i++){
         pageThree[i].addEventListener('click',function(event){
             //calls API for selected Item
-            let searchByPictureQuery = this.id
+            let searchByPictureQuery = this.id.toUpperCase()
             console.log(searchByPictureQuery)
             let queryTerm = searchByPictureQuery.toUpperCase()
             let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_title) like '%25" + queryTerm + "%25'" 
@@ -300,7 +300,9 @@ const recyclingObject = {
 }
 
 
+// https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_title) like '%25COFFEE PODS%25'
 
+// https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25COFFEE PODS%25'
 
 var generalSearch = () =>{
     const successCallback = (position) => {
