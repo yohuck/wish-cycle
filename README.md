@@ -1,4 +1,5 @@
-# wish-cycle
+Wish Cycle
+
 An application to help conscious consumers quickly and easily find out whether given items are recyclable and how/where to recycle items.
 
 The motivation behind this application was to give people the info they need to help build a more sustainable future. It is not always clear if an item to be disposed of is recyclable or not, or what do with it if it does meet recycling guidelines. It is not always black and white, plastic and apple core. There is a gray area of miscellaneous items people wish they could recycle, hence the name of our app "Wish Cycle". 
