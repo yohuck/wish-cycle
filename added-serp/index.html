@@ -11,20 +11,26 @@
 </head>
 <body>
     <section class="hero is-first is-fullheight" id="landing">
-        <div class="level-item pt-6">
+        <div class="level-item pt-6" id="date-save">
             <form> 
-                <input type="date" id="datePicker"></input>
-                <button id="saveDate">save recycling date</button>
+                <input type="date" id="datePicker" class="dateStuff"></input>
+                <button class='button dateStuff is-first' id="saveDate"><span class="is-fourth">save recycling date</span></button>
             </form>
             <div>
-                <p class="has-text-white ml-3 subtitle">Your last saved recycling date is: </p>
-                <p id="savedDate" class="subtitle has-text-white ml-3"></p>
+                <p class="has-text-centered">Your last saved recycling date is: </p>
+                <p id="savedDate" class="dateStuff subtitle is-third has-text-centered ml-3"></p>
+                <div class="control buttons is-centered dateStuff">
+                  <button class="button is-first" id="removeDateElement"><i class="is-fourth fa fa-solid fa-xmark"></i></button>
+              </div>
             </div>
         </div>
         <div class="hero-body level-item is-mobile">
             <div class="">
                 <p class="title mb-5">
                 Recycle Better
+                <sup>
+                      <i class="fas fa-bold fa-circle-info fa-2xs" id="infoIcon"></i>
+                </sup>
                 </p>
             <p class="subtitle has-text-white">
             Enter the item you'd like reycling information about
@@ -37,13 +43,16 @@
             </div>
                 <div class="field is-grouped">
                     <div class="control">
-                        <button class="button is-link" id="submit">Submit</button>
+                        <button class="button  is-new" id="submit"><span class="is-third">Submit</span></button>
                     </div>
                     <div class="control">
-                        <button class="button is-link is-light" id="searchByPicture">Search by picture</button>
+                        <button class="button is-light" id="searchByPicture"><span class="is-third">Search by picture</span></button>
                     </div>
                     <div class="control">
-                        <button class="button is-link is-light" id="searchByCode">Search by recycling code</button>
+                        <button class="button is-light" id="searchByCode"><span class="is-third">Search by recycling code</span></button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-light" id="viewSaveDate"><i class="fa fa-bold fa-calendar is-third"></i></button>
                     </div>
                 </div>
             </div>
@@ -53,7 +62,7 @@
     <section id="second" class="hero is-new is-fullheight">
         <div class="hero-body">
             <div class="">
-                <div class="tile is-ancestor" id="second-ancestor">
+                <div class="tile is-ancestor is-12" id="second-ancestor">
                 </div>
                 <button class="button is-link is-light" id="startOver">Back</button>  
             </div>
@@ -116,6 +125,7 @@
           <div class="tile is-parent">
             <article class="display tile is-child box notification is-secondary has-text-white" id="result1">
                 <div id="location1"class="title"></div>
+                <div id="result2"></div>
                 <svg id="loader" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="628.254px" height="613.516px" viewBox="0 0 628.254 613.516" enable-background="new 0 0 628.254 613.516" xml:space="preserve">
                     <g>
                         <g>
@@ -126,9 +136,8 @@
                             </g>
                         </g>
                     </g>
-                    </svg>
-              <div class="content">
-              </div>
+                </svg>
+              <button onclick="resetSerp()"class="button is-link is-light" id="startOver5">Restart</button>
             </article>
           </div>
         </div>
@@ -186,6 +195,31 @@
       </div>
     </div>
   </section>
+  <section class="hero is-new is-fullheight" id="infoSection">
+    <div class="hero-body info-hero" id="info-hero">
+        <div class="">
+          <h1 class="title is-third"><span class="is-third">Welcome to Wish Cycle! Here is a rundown of how to use the website:</span></h1>
+          <p>Have an item you are wishing you could recycle but not sure how? Great! We're here to help. Follow these step by step insturctions:</p>
+    <ul>
+     <li>Look at your item. If it is new don't recycle! Use it, list on your favorite website for free pick up, or donate to your local <a href="https://goodwillcolorado.org/shop/locations/?gclid=CjwKCAjwy_aUBhACEiwA2IHHQGkapruymYMO712mj892BxTz-tCx3S5L57DBnNFhHCma6CRZOIeQJxoCC_QQAvD_BwE">Goodwill.</a></li>
+     <li>If your item is used, you can do one of the following:</li>
+        <ol type="i">
+         <li>Type the name of your item into the search box, click the "Submit" button. Recyling details are then displayed.</li>
+         <li>If you are unsure of what your item is, click the "Search by picture" button.</li>
+          <ul>
+            <li>If this is the chosen route, you will be taken to the next page where you can choose which category your item might fall under.</li>
+            <li>Click the category for your item.</li>
+            <li>You are then taken to the next page where you can select your item.</li>
+            <li>Recycling info with instructions will be displayed.</li>
+          </ul>
+         <li>If you know your item's recycling code, click the "Search by recycling code" button. Info of how to recycle your item will be displayed.</li>
+        </ol>
+    </ul>
+    <h3>Thank you for doing your part to build a more sustainable future!</h3>
+          <button class="button is-link is-light" id="startOverInfo">Back</button>  
+    </div>
+    </div>
+</section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./script.js"></script>
     <script src="../ui.js"></script>

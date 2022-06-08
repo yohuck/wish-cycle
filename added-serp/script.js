@@ -13,10 +13,14 @@ let input = document.getElementById('search');
 let submit = document.getElementById('submit');
 let resultLabel = document.getElementById("resultLabel")
 let loader = document.getElementById('loader')
-let result2 = document.getElementById('result1')
+let result2 = document.getElementById('result2')
 let location1 = document.getElementById('location1');
 let resultsByCode = document.getElementById('resultLabelbyCode')
-let resultsByCodeTitle = document.getElementById('resultLabelbyCodeTitle')
+let resultsByCodeTitle = document.getElementById('resultLabelbyCodeTitle');
+let saveDateButton = document.getElementById('viewSaveDate');
+let saveDateElement = document.getElementById('date-save')
+let infoSection = document.getElementById('infoSection');
+let infoButton = document.getElementById('infoIcon')
 submit.addEventListener('click', function(event){
   let queryTerm = input.value.toUpperCase()
   let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25" + queryTerm + "%25'" 
@@ -30,6 +34,7 @@ submit.addEventListener('click', function(event){
     
 })
 
+
 input.addEventListener('keypress', (event) => {
   if(event.key === "Enter") {
     let queryTerm = input.value.toUpperCase()
@@ -40,6 +45,18 @@ input.addEventListener('keypress', (event) => {
       fourth.setAttribute('style','transform: translate(0%)')
       resultLabel.textContent = queryTerm
   }
+})
+
+
+
+infoButton.addEventListener('click', function(){
+  infoSection.setAttribute('style','transform: translate(0%)');
+  landing.setAttribute('style', 'transform: translate(100%)')
+})
+
+saveDateButton.addEventListener('click', function(){
+  console.log('hello')
+  saveDateElement.setAttribute('style','transform: translateY(0%)')
 })
 
 
@@ -132,6 +149,9 @@ let goBackBtn2 = document.getElementById('startOver2')
 let goBackBtn3 = document.getElementById('startOver3')
 let goBackBtn4 = document.getElementById('startOver4')
 let goBackBtn5 = document.getElementById('startOverFourByCode');
+let goBackBtn6 = document.getElementById('startOver5');
+let goBackBtn7 = document.getElementById('startOverInfo');
+let goBackBtn8 = document.getElementById('removeDateElement');
 
 goBackBtn.addEventListener('click', function(){
       second.setAttribute('style','transform: translate(100%)');
@@ -151,13 +171,30 @@ goBackBtn3.addEventListener('click', function(){
 goBackBtn4.addEventListener('click', function(){
         searchByCodeContainer.setAttribute('style','transform: translate(100%)');
         landing.setAttribute('style','transform: translate(0%)');
+        
       })
       
 goBackBtn5.addEventListener('click', function(){
         fourthByCode.setAttribute('style','transform: translate(100%)');
         searchByCodeContainer.setAttribute('style','transform: translate(0%)');
       })
+
+goBackBtn6.addEventListener('click', function(){
+        fifth.setAttribute('style','transform: translate(100%)');
+        landing.setAttribute('style','transform: translate(0%)');
+        loader.setAttribute('style', 'display: block')
+        result2.innerHTML = []
+      })
     
+goBackBtn7.addEventListener('click', function(){
+  infoSection.setAttribute('style','transform: translate(-100%)')
+  landing.setAttribute('style', 'transform: translate(0%)')
+})
+
+goBackBtn8.addEventListener('click', function(){
+  console.log('hello')
+  saveDateElement.setAttribute('style','transform: translateY(-100%)')
+})
 
 
 
@@ -180,7 +217,7 @@ const recyclingObject = {
     Kitchen: {
       name: 'Kitchen',
       items: ["milk_jug", "coffee pods", "plastic_produce_bag", "pop_can", "pizza box", "tissue_box", "hand soap", "dish soap", "paper towel", "Aluminum Foil"],
-      itemNames: ['Milk Jug', 'Coffee Pods', "Plastic Produce Bag", 'Beverage Can', "Pizza Box", 'Tissue Box', "Hand Soap", "Dish Soap", "Paper Towel", "Aluminum Foil"],
+      itemNames: ['Plastic Bottle', 'Coffee Pod', "Plastic Bag", 'Pop Can', "Pizza Box", 'Tissue Box', "Hand Soap", "Plastic Container", "Paper Towel", "Aluminum Foil"],
       icons: ['fa-jug', 'fa-coffee-beans', 'fa-sack', 'fa-can-food', 'fa-pizza', 'fa-box-tissue', 'fa-pump-soap', 'fa-jug-detergent', 'fa-scroll', 'fa-sheet-plastic'],
       icon: 'fa-kitchen-set',
     },
@@ -188,7 +225,7 @@ const recyclingObject = {
     Garage: {
       name: 'Garage',
       items: ["gas can", "oil_filter", "power_tool", "sports_equipment", "wood", "garden_hose", "bicycle_parts", "hardware", "Christmas lights", "Asphalt shingles"],
-      itemNames: ["Gas Can", "Oil Filter", "Power Tools", "Sports Equipment", "Wood", "Garden Hose", "Bicycle Parts", "Hardware", "Holiday Lights", "Asphalt Shingles"],
+      itemNames: ["Gasoline", "Oil Filter", "Power Tool", "Sports Equipment", "Wood", "Garden Hose", "Bicycle Parts", "Screws \u0026 Nails", "Christmas Lights", "Asphalt Shingles"],
       icons: ['fa-gas-pump', 'fa-oil-can-drip', 'fa-screwdriver-wrench', 'fa-basketball', 'fa-fence', 'fa-hose', 'fa-bicycle', 'fa-screwdriver-wrench', 'fa-lights-holiday', 'fa-chimney'],
       icon: 'fa-garage-open',
     },
@@ -204,7 +241,7 @@ const recyclingObject = {
     Electronics: {
       name: 'Electronics',
       items: ["audio_cassette_tape_case", "vcr_player", "dvd", "Computer monitor", "calculator", "CD player", "headphones", "Computer cables", "Camera", "television" ],
-      itemNames: ["Cassette Tape Case", "VCR/DVD/Media Player", "DVD", "Computer Monitor", "Calculator", "CD Player", "Headphones", "Computer Cables", "Camera", "Television"],
+      itemNames: ["Cassette Tape Case", "VCR", "DVD", "Computer Monitor", "Calculator", "CD Player", "Headphones", "Computer Cables", "Camera", "Television"],
       icons: ['fa-cassette-tape', 'fa-film-simple', 'fa-compact-disc', 'fa-computer', 'fa-calculator', 'fa-disc-drive', 'fa-headphones', 'fa-code-branch', 'fa-camera', 'fa-tv'],
       icon: 'fa-plug-circle-bolt'
     },
@@ -212,7 +249,7 @@ const recyclingObject = {
     Hazardous: {
       name: 'Hazardous',
       items: ["pesticide_garden_chemicals_fertilizer", "old paint", "Motor oil", "mercury_thermometer", "Pool chemicals",  "Aerosol can (empty)"],
-      itemNames: ["Pesticides, Garden Chemicals, Fertilizer", "Paint", "Motor Oil", "Mercury Thermometer", "Pool Chemicals",  "Aerosol Can"],
+      itemNames: ["Pesticide", "Paint", "Motor Oil", "Thermometer (Mercury)", "Pool Chemicals",  "Aerosol Can"],
       icons: ['fa-flask-round-poison', 'fa-fill-drip', 'fa-oil-can-drip', 'fa-temperature-half', 'fa-person-swimming', 'fa-spray-can'],
       icon: 'fa-biohazard'
     },
@@ -220,7 +257,7 @@ const recyclingObject = {
     Bathroom: {
       name: 'Bathroom',
       items: ["toilet_seat", "plastic_detergent_bottle", "curtain_rod_wood_or_plastic", "Shower curtain rings", "deodorant", "Toothpaste tube", "toothbrush", "razor_disposable", "Shampoo bottle", "shaving_cream_can_empty"],
-      itemNames: ["Toilet Seat", "Plastic Detergent Bottle", "Curtain Rod (Wood or Plastic)", "Shower Curtain Rings", "Deodorant", "Toothpaste Tube", "Toothbrush", "Disposable Razor", "Shampoo Bottle", "Shaving Cream Can"],
+      itemNames: ["Toilet Seat", "Hand Soap", "Curtain Rod (Wood or Plastic)", "Shower Curtain Rings", "Deodorant", "Toothpaste Tube", "Toothbrush", "Razor (Disposable)", "Shampoo Bottle", "Shaving Cream Can"],
       icons: ['fa-toilet', 'fa-jug-detergent', 'fa-booth-curtain', 'fa-ring', 'fa-shower', 'fa-toothbrush', 'fa-teeth', 'fa-user-shakespeare', 'fa-jug-detergent', 'fa-pump-soap'],
       icon: ['fa-bath']
     },
@@ -228,7 +265,7 @@ const recyclingObject = {
     Living_Room: {
       name: 'Living Room',
       items: ["book_hardcover", "Pillows and cushions", "Furniture", "Light fixture", "light_bulb_all_types","Coffee table", "Picture frame", "Magazine", "Artificial plants and flowers"],
-      itemNames: ["Hardcover Book", "Pillows and Cushions", "Furniture", "Light Fixture", "Light Bulb","Coffee Table", "Picture Frame", "Magazine", "Artificial Plants"],
+      itemNames: ["Book (Hardcover)", "Pillows and Cushions", "Furniture", "Light Fixture", "Lightbulb","Coffee Table", "Picture Frame", "Magazine", "Artificial Plants"],
       icons: ['fa-book-sparkles', 'fa-mattress-pillow', 'fa-couch', 'fa-lamp-floor', 'fa-lightbulb-on', 'fa-table-picnic', 'fa-frame', 'fa-book', 'fa-leaf'],
       icon: 'fa-couch'
     },
@@ -236,7 +273,7 @@ const recyclingObject = {
     Bedroom: {
       name: 'Bedroom',
       items: ["stuffed_animal", "Shoes", "Backpacks & handbags", "Halloween costume", "Mattress",  "clothes", "hangers_plastic", "Electric blanket"],
-      itemNames: ["Stuffed Animal", "Shoes", "Backpacks & Handbags", "Halloween Costume", "Mattress",  "Clothes", "Plastic Hanger", "Electric Blanket"],
+      itemNames: ["Stuffed Animal", "Shoes", "Backpacks & Handbags", "Costume", "Mattress",  "Clothes", "Clothes Hanger", "Electric Blanket"],
       icons: ['fa-teddy-bear', 'fa-boot', 'fa-backpack', 'fa-mask', 'fa-mattress-pillow', 'fa-shirt', 'fa-clothes-hanger', 'fa-blanket-fire'],
       icon: 'fa-bed-front'
     }
@@ -247,7 +284,7 @@ const recyclingObject = {
 
   let createCategoryTile = (category, page, pageTag) => {
     let parentTile = document.createElement('div');
-    parentTile.classList.add('tile', 'is-parent', pageTag);
+    parentTile.classList.add('tile', 'is-parent', 'is-4', pageTag);
     parentTile.setAttribute('id', category)
     let article = document.createElement('article');
     article.classList.add('tile', 'is-child', 'box', 'notification', 'is-secondary');
@@ -290,7 +327,7 @@ const recyclingObject = {
       for (let i = 0; i < pageThree.length; i++){
         pageThree[i].addEventListener('click',function(event){
             //calls API for selected Item
-            let searchByPictureQuery = this.id
+            let searchByPictureQuery = this.id.toUpperCase()
             console.log(searchByPictureQuery)
             let queryTerm = searchByPictureQuery.toUpperCase()
             let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_title) like '%25" + queryTerm + "%25'" 
@@ -307,11 +344,15 @@ const recyclingObject = {
 }
 
 
+// https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_title) like '%25COFFEE PODS%25'
 
+// https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25COFFEE PODS%25'
 
 var generalSearch = () =>{
     const successCallback = (position) => {
+        loader.style.display = 'block'
         fourth.setAttribute('style','transform: translate(-100%)');
+        fourthbyCodeContainer.setAttribute('style','transform:translate(-100%)')
         fifth.setAttribute('style','transform: translate(0%)')
         console.log(position);
         var latitude = position.coords.latitude
@@ -329,7 +370,7 @@ var generalSearch = () =>{
 
                 let result1 = '';
                 // commented out URL
-                let url2 = 'https://api.valueserp.com/search?api_key=A194679C5A1340D5986D72FAE3E67B62&q=recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
+                let url2 = 'https://api.valueserp.com/search?api_key=C900A666A97042E0BA3DB407B95D254F&q=recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
                 $.ajax({
                 url: url2,
                 type: 'GET',
@@ -341,8 +382,8 @@ var generalSearch = () =>{
                         <a class="is-third">${result.link}</a><br>`
                         
                     
-                    $("#result1").append(result1)
-                    result2.removeChild(loader)
+                    $("#result2").append(result1)
+                    loader.setAttribute('style', 'display:none')
                 })     
             })  
             })
@@ -357,6 +398,7 @@ var generalSearch = () =>{
 var electronicSearch = () =>{
     const successCallback2 = (position) => {
         fourth.setAttribute('style','transform: translate(-100%)');
+        fourthbyCodeContainer.setAttribute('style','transform:translate(-100%)')
         fifth.setAttribute('style','transform: translate(0%)')
         console.log(position);
         var latitude = position.coords.latitude
@@ -375,7 +417,7 @@ var electronicSearch = () =>{
     
                 let result1 = '';
                 // Commented out URL
-                let url2 = 'https://api.valueserp.com/search?api_key=A194679C5A1340D5986D72FAE3E67B62&q=electronics+recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
+                let url2 = 'https://api.valueserp.com/search?api_key=C900A666A97042E0BA3DB407B95D254F&q=electronics+recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
     
                 $.ajax({
                 url: url2,
@@ -387,8 +429,8 @@ var electronicSearch = () =>{
                         <p>${result.extensions[4]}</p>
                         <a>${result.link}</a><br>`
                     
-                    $("#result1").append(result1)
-                    result2.removeChild(loader)
+                    $("#result2").append(result1)
+                    loader.setAttribute('style', 'display:none')
                 })     
             })  
             })
@@ -405,6 +447,7 @@ var electronicSearch = () =>{
 var hazardSearch = () =>{
     const successCallback3 = (position) => {
         fourth.setAttribute('style','transform: translate(-100%)');
+        fourthbyCodeContainer.setAttribute('style','transform:translate(-100%)')
         fifth.setAttribute('style','transform: translate(0%)')
         console.log(position);
         var latitude = position.coords.latitude
@@ -423,7 +466,7 @@ var hazardSearch = () =>{
     
                 let result1 = '';
                 // Commented out URL
-                let url2 = 'https://api.valueserp.com/search?api_key=A194679C5A1340D5986D72FAE3E67B62&q=hazardous+recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
+                let url2 = 'https://api.valueserp.com/search?api_key=C900A666A97042E0BA3DB407B95D254F&q=hazardous+recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
     
                 $.ajax({
                 url: url2,
@@ -435,8 +478,8 @@ var hazardSearch = () =>{
                         <p>${result.extensions[4]}</p>
                         <a>${result.link}</a><br>`
     
-                    $("#result1").append(result1)
-                    result2.removeChild(loader)
+                    $("#result2").append(result1)
+                    loader.setAttribute('style', 'display:none')
                 })     
             })  
             })
@@ -448,6 +491,10 @@ var hazardSearch = () =>{
     
     navigator.geolocation.getCurrentPosition(successCallback3,errorCallback)
     }
+var resetSerp = () => {
+    result2.textContent = []
+    loader.setAttribute('style', 'display:block')
+}
 
 
 // Search By Code Object
@@ -513,9 +560,10 @@ const recyclingSymbols = {
 
 
     let generateSearchByCodeOptions = () => {
+        searchByCodeAncestor.innerHTML = []
       for (codes in recyclingSymbols){
         let parentTile = document.createElement('div');
-        parentTile.classList.add('tile', 'is-parent', 'searchByCodePage');
+        parentTile.classList.add('tile', 'is-parent', 'searchByCodePage', 'is-4');
         parentTile.setAttribute('id', recyclingSymbols[codes].code)
         let article = document.createElement('article');
         article.classList.add('tile', 'is-child', 'box', 'notification', 'is-secondary');
@@ -541,6 +589,8 @@ const recyclingSymbols = {
     }
 
 let generateFourthByCode = code => {
+    resultsByCodeTitle.innerHTML = []
+    resultsByCode.innerHTML = []
   console.log(code)
   let codeSwitch;
   switch (code) {

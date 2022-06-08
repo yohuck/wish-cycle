@@ -58,7 +58,8 @@ let goBackBtn = document.getElementById('startOver');
 
 let searchButtons = [submiter, searchByCode];
 
-searchButtons.forEach(element => element.addEventListener('mouseenter', function(){
+
+searchButtons.forEach(element => element.addEventListener.('mouseenter', function(){
   element.classList.remove('is-light');
 }))
 
