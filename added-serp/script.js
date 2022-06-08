@@ -17,6 +17,8 @@ let result2 = document.getElementById('result2')
 let location1 = document.getElementById('location1');
 let resultsByCode = document.getElementById('resultLabelbyCode')
 let resultsByCodeTitle = document.getElementById('resultLabelbyCodeTitle');
+let saveDateButton = document.getElementById('viewSaveDate');
+let saveDateElement = document.getElementById('date-save')
 let infoSection = document.getElementById('infoSection');
 let infoButton = document.getElementById('infoIcon')
 submit.addEventListener('click', function(event){
@@ -32,6 +34,12 @@ submit.addEventListener('click', function(event){
 
 infoButton.addEventListener('click', function(){
   infoSection.setAttribute('style','transform: translate(0%)');
+  landing.setAttribute('style', 'transform: translate(100%)')
+})
+
+saveDateButton.addEventListener('click', function(){
+  console.log('hello')
+  saveDateElement.setAttribute('style','transform: translateY(0%)')
 })
 
 let fetchItem = urlSearch => {
@@ -124,7 +132,8 @@ let goBackBtn3 = document.getElementById('startOver3')
 let goBackBtn4 = document.getElementById('startOver4')
 let goBackBtn5 = document.getElementById('startOverFourByCode');
 let goBackBtn6 = document.getElementById('startOver5');
-let goBackBtn7 = document.getElementById('startOverInfo')
+let goBackBtn7 = document.getElementById('startOverInfo');
+let goBackBtn8 = document.getElementById('removeDateElement');
 
 goBackBtn.addEventListener('click', function(){
       second.setAttribute('style','transform: translate(100%)');
@@ -160,7 +169,13 @@ goBackBtn6.addEventListener('click', function(){
       })
     
 goBackBtn7.addEventListener('click', function(){
-  infoSection.setAttribute('style','transform: translate(-100$)')
+  infoSection.setAttribute('style','transform: translate(-100%)')
+  landing.setAttribute('style', 'transform: translate(0%)')
+})
+
+goBackBtn8.addEventListener('click', function(){
+  console.log('hello')
+  saveDateElement.setAttribute('style','transform: translateY(-100%)')
 })
 
 

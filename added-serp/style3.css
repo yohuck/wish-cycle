@@ -180,3 +180,31 @@ section{
 .info-hero ol{
     margin-left: 4rem;
 }
+
+#date-save{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #ffbf00;
+    color: #484041;
+    position: absolute;
+    width: 100%;
+    transform: translateY(-100%);
+    transition: 0.5s ease-in-out;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+
+
+form{
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.dateStuff{
+    margin: 0.5rem;
+}
