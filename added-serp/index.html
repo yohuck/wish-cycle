@@ -11,14 +11,17 @@
 </head>
 <body>
     <section class="hero is-first is-fullheight" id="landing">
-        <div class="level-item pt-6">
+        <div class="level-item pt-6" id="date-save">
             <form> 
-                <input type="date" id="datePicker"></input>
-                <button id="saveDate">save recycling date</button>
+                <input type="date" id="datePicker" class="dateStuff"></input>
+                <button class='button is-link dateStuff' id="saveDate">save recycling date</button>
             </form>
             <div>
-                <p class="has-text-white ml-3 subtitle">Your last saved recycling date is: </p>
-                <p id="savedDate" class="subtitle has-text-white ml-3"></p>
+                <p class="has-text-centered">Your last saved recycling date is: </p>
+                <p id="savedDate" class="dateStuff subtitle has-text-white has-text-centered ml-3"></p>
+                <div class="control buttons is-centered dateStuff">
+                  <button class="button is-link" id="removeDateElement"><i class="fa fa-solid fa-xmark"></i></button>
+              </div>
             </div>
         </div>
         <div class="hero-body level-item is-mobile">
@@ -47,6 +50,9 @@
                     </div>
                     <div class="control">
                         <button class="button is-link is-light" id="searchByCode">Search by recycling code</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link is-light" id="viewSaveDate"><i class="fa fa-bold fa-calendar"></i></button>
                     </div>
                 </div>
             </div>
