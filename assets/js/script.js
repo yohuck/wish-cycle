@@ -71,24 +71,9 @@ $.ajax({
     }
 }).done(function(data) {
     resultContent.innerHTML= []
-  const results = data[0];
-  console.log('got-here')
-  console.log(results)
-  for (const item in results) {
-    const infoElem = document.createElement('p');
-    infoElem.textContent = data[0][item];
-    resultContent.append(infoElem)
-  }
-  if (data.length > 1){
-    for (let i = 1; i < data.length; i++){
-      let otherResult = data[i]['material_title']
-      let otherResultLink = document.createElement('a');
-      otherResultLink.setAttribute('href','#');
-      otherResultLink.textContent = otherResult + " ";
-      resultContent.append(otherResultLink)
-    }
-  }
-
+const infoElem = document.createElement('p');
+  infoElem.innerHTML = 'Similar products:   '+ data[0].material_synonyms+ '<br/> <br/>' +'Special instructions:   ' +data[0].special_instructions+'<br/> <br/>'+ 'Where to bring:   ' + data[0].stream_title
+  resultContent.append(infoElem)
 });
 }
 
