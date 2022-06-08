@@ -59,6 +59,7 @@
 
 #title{
     color: white;
+    /* background-color: #007000db; */
 
 }
 
@@ -184,12 +185,14 @@ section{
     width: 100%;
     transform: translateY(-100%);
     transition: 0.5s ease-in-out;
+    border-bottom: 3px solid #007000db;
 }
 
 
 
 form{
-    min-height: 50px;
+    margin-top: -5rem;
+    min-height: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -226,6 +229,26 @@ article{
 
 button{
     margin: 0.25rem;
+}
+
+#landing{
+    background-image: url(/assets/blob.svg);
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: 50% 50%;
+}
+
+@media screen and (max-width: 800px) {
+    #landing{
+        background-size: 240%;
+    }
+    
+}
+@media screen and (min-width: 1200px) {
+    #landing{
+        background-size: 90%;
+    }
+    
 }
 
 #modalBtn{
