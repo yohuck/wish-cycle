@@ -21,6 +21,8 @@ let saveDateButton = document.getElementById('viewSaveDate');
 let saveDateElement = document.getElementById('date-save')
 let infoSection = document.getElementById('infoSection');
 let infoButton = document.getElementById('infoIcon')
+let modal = document.getElementById('modal')
+let modalButton= document.getElementById('modalBtn')
 submit.addEventListener('click', function(event){
   let queryTerm = input.value.toUpperCase()
   let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25" + queryTerm + "%25'" 
@@ -375,7 +377,7 @@ var generalSearch = () =>{
     }
     const errorCallback = (error) =>{
         console.error(error)
-        alert('you must allow location to search')
+        modal.classList.add('is-active')
     }
 
     navigator.geolocation.getCurrentPosition(successCallback,errorCallback)
@@ -422,7 +424,7 @@ var electronicSearch = () =>{
     }
     const errorCallback = (error) =>{
         console.error(error)
-        alert('you must allow location to search')
+        modal.classList.add('is-active')
     }
     
     navigator.geolocation.getCurrentPosition(successCallback2,errorCallback)
@@ -471,7 +473,7 @@ var hazardSearch = () =>{
     }
     const errorCallback = (error) =>{
         console.error(error)
-        alert('you must allow location to search')
+        modal.classList.add('is-active')
     }
     
     navigator.geolocation.getCurrentPosition(successCallback3,errorCallback)
@@ -617,4 +619,8 @@ let generateFourthByCode = code => {
   resultsByCodeTitle.appendChild(byCodeInfo)
   resultsByCode.appendChild(commonItems)
   resultsByCode.appendChild(byCodeNotes)
+}
+
+let closeModal = () =>{
+    modal.classList.remove('is-active')
 }

@@ -227,3 +227,18 @@ article{
 button{
     margin: 0.25rem;
 }
+
+#modalBtn{
+    position:absolute;
+    right: 35%;
+    top: 35%
+}
+
+#modalCard{
+    display: flex;
+    overflow: hidden;
+    height: 10rem;
+    justify-content: center;
+    align-items: center;
+    color: #007000;
+}
