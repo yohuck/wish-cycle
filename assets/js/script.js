@@ -72,7 +72,7 @@ $.ajax({
 }).done(function(data) {
     resultContent.innerHTML= []
 const infoElem = document.createElement('p');
-  infoElem.innerHTML = 'Similar products:   '+ data[0].material_synonyms+ '<br/> <br/>' +'Special instructions:   ' +data[0].special_instructions+'<br/> <br/>'+ 'Where to bring:   ' + data[0].stream_title
+  infoElem.innerHTML = 'Similar products:  -- '+ data[0].material_synonyms+ '<br/> <br/>' +'Special instructions: --  ' +data[0].special_instructions+'<br/> <br/>'+ 'Where to bring:  -- ' + data[0].stream_title
   resultContent.append(infoElem)
 });
 }
