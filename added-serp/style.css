@@ -111,3 +111,20 @@ body {
     }
 }
 
+#infoButton{
+    width: 2rem;
+}
+
+#infoIcon{
+    color: green;
+    background-color: red;
+}
+
+#infoTile{
+    display: flex;
+    flex-direction: column;
+}
+
+#info-hero{
+    max-width: 200px;
+}
