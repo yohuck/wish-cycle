@@ -29,7 +29,24 @@ submit.addEventListener('click', function(event){
     landing.setAttribute('style','transform: translate(-100%)');
     fourth.setAttribute('style','transform: translate(0%)')
     resultLabel.textContent = queryTerm
+
+    
+    
 })
+
+
+input.addEventListener('keypress', (event) => {
+  if(event.key === "Enter") {
+    let queryTerm = input.value.toUpperCase()
+    let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25" + queryTerm + "%25'" 
+      console.log(query)
+      fetchItem(query)
+      landing.setAttribute('style','transform: translate(-100%)');
+      fourth.setAttribute('style','transform: translate(0%)')
+      resultLabel.textContent = queryTerm
+  }
+})
+
 
 
 infoButton.addEventListener('click', function(){
@@ -41,6 +58,7 @@ saveDateButton.addEventListener('click', function(){
   console.log('hello')
   saveDateElement.setAttribute('style','transform: translateY(0%)')
 })
+
 
 let fetchItem = urlSearch => {
 
