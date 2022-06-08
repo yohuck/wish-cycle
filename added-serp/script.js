@@ -240,7 +240,7 @@ const recyclingObject = {
 
   let createCategoryTile = (category, page, pageTag) => {
     let parentTile = document.createElement('div');
-    parentTile.classList.add('tile', 'is-parent', pageTag);
+    parentTile.classList.add('tile', 'is-parent', 'is-4', pageTag);
     parentTile.setAttribute('id', category)
     let article = document.createElement('article');
     article.classList.add('tile', 'is-child', 'box', 'notification', 'is-secondary');
@@ -517,7 +517,7 @@ const recyclingSymbols = {
         searchByCodeAncestor.innerHTML = []
       for (codes in recyclingSymbols){
         let parentTile = document.createElement('div');
-        parentTile.classList.add('tile', 'is-parent', 'searchByCodePage');
+        parentTile.classList.add('tile', 'is-parent', 'searchByCodePage', 'is-4');
         parentTile.setAttribute('id', recyclingSymbols[codes].code)
         let article = document.createElement('article');
         article.classList.add('tile', 'is-child', 'box', 'notification', 'is-secondary');
