@@ -24,9 +24,9 @@ let infoButton = document.getElementById('infoIcon')
 let modal = document.getElementById('modal')
 let modalButton= document.getElementById('modalBtn')
 submit.addEventListener('click', function(event){
-    if(input.value == ''){
-        void(0)
-    } else{
+    // if(input.value == ''){
+    //     void(0)
+    // } else{
   let queryTerm = input.value.toUpperCase()
   let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25" + queryTerm + "%25'" 
     console.log(query)
@@ -37,7 +37,8 @@ submit.addEventListener('click', function(event){
 
     
     
-}})
+// }
+})
 
 
 input.addEventListener('keypress', (event) => {
@@ -67,9 +68,9 @@ saveDateButton.addEventListener('click', function(){
 
 
 let fetchItem = urlSearch => {
-if(input.value == ''){
-    void(0)
-} else{
+// if(input.value == ''){
+//     void(0)
+// } else{
 $.ajax({
     url: urlSearch,
     type: "GET",
@@ -83,7 +84,7 @@ const infoElem = document.createElement('p');
   infoElem.innerHTML = 'Similar products:  -- '+ data[0].material_synonyms+ '<br/> <br/>' +'Special instructions: --  ' +data[0].special_instructions+'<br/> <br/>'+ 'Where to bring:  -- ' + data[0].stream_title
   resultContent.append(infoElem)
 });
-}
+// }
 }
 
 let submiter = document.getElementById('searchByPicture');
