@@ -41,7 +41,9 @@ submit.addEventListener('click', function(event){
 
 
 input.addEventListener('keypress', (event) => {
-  
+    if(input.value == ''){
+        void(0)
+    } else{
    if(event.key === "Enter") {
     let queryTerm = input.value.toUpperCase()
     let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25" + queryTerm + "%25'" 
@@ -51,7 +53,7 @@ input.addEventListener('keypress', (event) => {
       fourth.setAttribute('style','transform: translate(0%)')
       resultLabel.textContent = queryTerm
   }
-})
+}})
 
 
 
@@ -67,9 +69,6 @@ saveDateButton.addEventListener('click', function(){
 
 
 let fetchItem = urlSearch => {
-if(input.value == ''){
-    void(0)
-} else{
 $.ajax({
     url: urlSearch,
     type: "GET",
@@ -83,7 +82,6 @@ const infoElem = document.createElement('p');
   infoElem.innerHTML = 'Similar products:  -- '+ data[0].material_synonyms+ '<br/> <br/>' +'Special instructions: --  ' +data[0].special_instructions+'<br/> <br/>'+ 'Where to bring:  -- ' + data[0].stream_title
   resultContent.append(infoElem)
 });
-}
 }
 
 let submiter = document.getElementById('searchByPicture');
