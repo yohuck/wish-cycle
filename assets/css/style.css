@@ -191,8 +191,8 @@ section{
 
 
 form{
-    margin-top: -5rem;
-    min-height: 20px;
+    margin-top: -2rem;
+    min-height: 50px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
