@@ -142,29 +142,36 @@ let renderdate = () => {
     renderSaved.append(grabPast)
 }
 
-renderdate()
+renderdate();
+
+let scrollToTop = () => {
+  $('article').scrollTop(0);
+}
 
 //   Back Buttons
 
 goBackBtn.addEventListener('click', function(){
-      document.body.scrollTop = document.documentElement.scrollTop = 0;
+      scrollToTop();
       second.setAttribute('style','transform: translate(100%)');
       landing.setAttribute('style','transform: translate(0%)');
     })
 
 goBackBtn2.addEventListener('click', function(){
+  scrollToTop();
   document.body.scrollTop = document.documentElement.scrollTop = 0;
         third.setAttribute('style','transform: translate(100%)');
         second.setAttribute('style','transform: translate(0%)');
       })
 
 goBackBtn3.addEventListener('click', function(){
+  scrollToTop();
   document.body.scrollTop = document.documentElement.scrollTop = 0;
         fourth.setAttribute('style','transform: translate(100%)');
         third.setAttribute('style','transform: translate(0%)');
       })
     
 goBackBtn4.addEventListener('click', function(){
+  scrollToTop();
   document.body.scrollTop = document.documentElement.scrollTop = 0;
         searchByCodeContainer.setAttribute('style','transform: translate(100%)');
         landing.setAttribute('style','transform: translate(0%)');
@@ -172,12 +179,14 @@ goBackBtn4.addEventListener('click', function(){
       })
       
 goBackBtn5.addEventListener('click', function(){
+  scrollToTop();
   document.body.scrollTop = document.documentElement.scrollTop = 0;
         fourthByCode.setAttribute('style','transform: translate(100%)');
         searchByCodeContainer.setAttribute('style','transform: translate(0%)');
       })
 
 goBackBtn6.addEventListener('click', function(){
+  scrollToTop();
   document.body.scrollTop = document.documentElement.scrollTop = 0;
         fifth.setAttribute('style','transform: translate(100%)');
         landing.setAttribute('style','transform: translate(0%)');
@@ -186,12 +195,14 @@ goBackBtn6.addEventListener('click', function(){
       })
     
 goBackBtn7.addEventListener('click', function(){
+  scrollToTop();
   document.body.scrollTop = document.documentElement.scrollTop = 0;
   infoSection.setAttribute('style','transform: translate(-100%)')
   landing.setAttribute('style', 'transform: translate(0%)')
 })
 
 goBackBtn8.addEventListener('click', function(){
+  scrollToTop();
   document.body.scrollTop = document.documentElement.scrollTop = 0;
   saveDateElement.setAttribute('style','transform: translateY(-100%)')
 })

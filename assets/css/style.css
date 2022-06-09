@@ -8,12 +8,11 @@
     text-align: center;
 }
 
-body{
+.wrapper{
+    position: relative;
     height: 100vh;
-    width: 100vh;
-    overflow-x: hidden;
-    overflow-y: scroll
-    ov
+    width: 100vw;
+    overflow: scroll;
 }
 
 
