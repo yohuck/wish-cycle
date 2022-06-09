@@ -2,7 +2,7 @@
 
 ## An application to help conscious consumers quickly and easily find out whether given items are recyclable and how/where to recycle items.
 
-Link to application: yohuck.github.io/wish-cycle/
+<a href="https://yohuck.github.io/wish-cycle" target="_blank" > Deployed Webpage </a>
 
 The motivation behind this application was to give people the info they need to help build a more sustainable future. It is not always clear if an item to be disposed of is recyclable or not, or what do with it if it does meet recycling guidelines. It is not always black and white, plastic and apple core. There is a gray area of miscellaneous items people wish they could recycle, hence the name of our app "Wish Cycle". 
 
@@ -53,7 +53,7 @@ Each page features a back button to take the user to the previous page.
 
 -Geolocation API
 
--https://data.edmonton.ca/Environmental-Services/Waste-Recycling-Material-List/gtej-pcij/data
+-Socrata Open Data API
 
 
 ![Untitled_ Jun 8, 2022 3_44 PM (2)](https://user-images.githubusercontent.com/103149149/172724210-47d4b641-a39d-4be8-a289-920fdbddb0ba.gif)
