@@ -1,4 +1,3 @@
-
 let key = '4okwp6xyq58qv182lxa5x55u7'
 let secretKey = '4hgvzbv2wm36miayquqhapo6x5fudfo8f5dvkid29m6m6o4ddz'
 let appToken = '9Em3vkFlkE4FM14o46mGdx0ae'
@@ -23,20 +22,39 @@ let infoSection = document.getElementById('infoSection');
 let infoButton = document.getElementById('infoIcon')
 let modal = document.getElementById('modal')
 let modalButton= document.getElementById('modalBtn')
+let submiter = document.getElementById('searchByPicture');
+let searchByCode = document.getElementById('searchByCode');
+let second = document.getElementById('second');
+let pageThree = document.getElementsByClassName('pageThree');
+let pizza = document.getElementById('pizza')
+let searchButtons = [submiter, searchByCode];
+let saveBtn = document.getElementById('saveDate')
+let datePicker = document.getElementById('datePicker')
+let secondAncestor = document.getElementById('second-ancestor');
+let thirdAncestor = document.getElementById('third-ancestor');
+let goBackBtn = document.getElementById('startOver')
+let goBackBtn2 = document.getElementById('startOver2')
+let goBackBtn3 = document.getElementById('startOver3')
+let goBackBtn4 = document.getElementById('startOver4')
+let goBackBtn5 = document.getElementById('startOverFourByCode');
+let goBackBtn6 = document.getElementById('startOver5');
+let goBackBtn7 = document.getElementById('startOverInfo');
+let goBackBtn8 = document.getElementById('removeDateElement');
+
+// Search by input box and clicking submit button
 submit.addEventListener('click', function(event){
     if(input.value == ''){
         void(0)
     } else{
   let queryTerm = input.value.toUpperCase()
   let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25" + queryTerm + "%25'" 
-    console.log(query)
     fetchItem(query)
     landing.setAttribute('style','transform: translate(-100%)');
     fourth.setAttribute('style','transform: translate(0%)')
     resultLabel.textContent = queryTerm
 }})
 
-
+// search by input box and pressing enter
 input.addEventListener('keypress', (event) => {
     if(input.value == ''){
         void(0)
@@ -44,7 +62,6 @@ input.addEventListener('keypress', (event) => {
    if(event.key === "Enter") {
     let queryTerm = input.value.toUpperCase()
     let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25" + queryTerm + "%25'" 
-      console.log(query)
       fetchItem(query)
       landing.setAttribute('style','transform: translate(-100%)');
       fourth.setAttribute('style','transform: translate(0%)')
@@ -52,19 +69,19 @@ input.addEventListener('keypress', (event) => {
   }
 }})
 
-
-
+// help page
 infoButton.addEventListener('click', function(){
   infoSection.setAttribute('style','transform: translate(0%)');
   landing.setAttribute('style', 'transform: translate(100%)')
 })
 
+// save recycling dropdown
 saveDateButton.addEventListener('click', function(){
-  console.log('hello')
   saveDateElement.setAttribute('style','transform: translateY(0%)')
 })
 
 
+// The function being called for recycling information by picture or by input
 let fetchItem = urlSearch => {
 
 $.ajax({
@@ -83,12 +100,6 @@ const infoElem = document.createElement('p');
 
 }
 
-let submiter = document.getElementById('searchByPicture');
-let searchByCode = document.getElementById('searchByCode');
-let second = document.getElementById('second');
-let pageThree = document.getElementsByClassName('pageThree');
-let pizza = document.getElementById('pizza')
-let searchButtons = [submiter, searchByCode];
 
 searchButtons.forEach(element => element.addEventListener('mouseenter', function(){
   element.classList.remove('is-light');
@@ -117,8 +128,7 @@ searchByCode.addEventListener('click',function(){
     generateSearchByCodeOptions()
 })
 
-let saveBtn = document.getElementById('saveDate')
-let datePicker = document.getElementById('datePicker')
+
 saveBtn.addEventListener('click', function(e){
     e.preventDefault()
     let savedDate = datePicker.value
@@ -130,19 +140,11 @@ let renderdate = () => {
     renderSaved.innerHTML = ''
     let grabPast = localStorage.getItem('date')
     renderSaved.append(grabPast)
-    console.log(grabPast)
 }
 
 renderdate()
 
-let goBackBtn = document.getElementById('startOver')
-let goBackBtn2 = document.getElementById('startOver2')
-let goBackBtn3 = document.getElementById('startOver3')
-let goBackBtn4 = document.getElementById('startOver4')
-let goBackBtn5 = document.getElementById('startOverFourByCode');
-let goBackBtn6 = document.getElementById('startOver5');
-let goBackBtn7 = document.getElementById('startOverInfo');
-let goBackBtn8 = document.getElementById('removeDateElement');
+//   Back Buttons
 
 goBackBtn.addEventListener('click', function(){
       second.setAttribute('style','transform: translate(100%)');
@@ -183,27 +185,10 @@ goBackBtn7.addEventListener('click', function(){
 })
 
 goBackBtn8.addEventListener('click', function(){
-  console.log('hello')
   saveDateElement.setAttribute('style','transform: translateY(-100%)')
 })
 
-
-
-
-
-
-
-
-// pizza.addEventListener('click', function(){
-//     console.log(this.id)
-//     let queryTerm = this.id
-//     let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=material_synonyms like '%25" + queryTerm + "%25'" 
-//       console.log(query)
-//       fetchItem(query)
-// })
-
-
-
+// Object for creating search by picture
 const recyclingObject = {
     Kitchen: {
       name: 'Kitchen',
@@ -270,10 +255,8 @@ const recyclingObject = {
     }
 }
 
-  let secondAncestor = document.getElementById('second-ancestor');
-  let thirdAncestor = document.getElementById('third-ancestor');
-
-  let createCategoryTile = (category, page, pageTag) => {
+// Function to create cards on page 2
+let createCategoryTile = (category, page, pageTag) => {
     let parentTile = document.createElement('div');
     parentTile.classList.add('tile', 'is-parent', 'is-4', pageTag);
     parentTile.setAttribute('id', category)
@@ -300,20 +283,15 @@ const recyclingObject = {
     let iconEdit = cards[i].children[0].children[1];
     iconEdit.classList.add(recyclingObject[iconEditParent].icon)
     cards[i].addEventListener('click',function(event){
-      let chosenCat = recyclingObject[this.id]
-      console.log(chosenCat)
+      let chosenCat = recyclingObject[this.id]  
       let chosenCategory = recyclingObject[this.id].itemNames;
-      console.log('hello')
       let chosenCategoryCamel = recyclingObject[this.id]
-      console.log(chosenCategoryCamel)
       thirdAncestor.innerHTML = [];
       for (let i = 0; i < chosenCategory.length; i++){
         createCategoryTile(chosenCategory[i], thirdAncestor, 'pageThree');
         let iconNeeded = document.getElementById(chosenCategory[i]);
-        console.log(iconNeeded.children[0].children[1]);
         iconNeeded.children[0].children[1].classList.remove('fa-kitchen-set')
         iconNeeded.children[0].children[1].classList.add(recyclingObject[this.id].icons[i])
-        console.log(recyclingObject[this.id].icons[i]);
       }
       for (let i = 0; i < pageThree.length; i++){
         pageThree[i].addEventListener('click',function(event){
@@ -334,10 +312,7 @@ const recyclingObject = {
     })
 }
 
-
-// https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_title) like '%25COFFEE PODS%25'
-
-// https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25COFFEE PODS%25'
+// searches for local general recycling centers
 
 var generalSearch = () =>{
     const successCallback = (position) => {
@@ -345,7 +320,6 @@ var generalSearch = () =>{
         fourth.setAttribute('style','transform: translate(-100%)');
         fourthbyCodeContainer.setAttribute('style','transform:translate(-100%)')
         fifth.setAttribute('style','transform: translate(0%)')
-        console.log(position);
         var latitude = position.coords.latitude
         var longitude = position.coords.longitude
         var apiKey = 'e6c7145ef0589d5c1799b396e8bd2be3'
@@ -355,23 +329,18 @@ var generalSearch = () =>{
                 url: url,
                 type: 'get',
             }) .done(function (data){
-                console.log(data)
                 location1.textContent = 'General Recycling for '+ data[0].name + ', ' + data[0].state
                 let city = data[0].name
-
                 let result1 = '';
-                // commented out URL
-                let url2 = 'https://api.valueserp.com/search?api_key=C900A666A97042E0BA3DB407B95D254F&q=recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
+                let url2 = 'https://api.valueserp.com/search?api_key=0B06CFEBAB884DC49ED3D9055BBDFD5C&q=recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
                 $.ajax({
                 url: url2,
                 type: 'GET',
                 }).done(function(data){
-                    console.log(data)
                     data.local_results.forEach(result =>{
                     result1 = `<h1 class="is-third title is-3">${result.title}</h1>
                         <p class="is-third">${result.extensions[4]}</p>
-                        <a class="is-third">${result.link}</a><br>`
-                        
+                        <a class="is-third">${result.link}</a><br>`   
                     
                     $("#result2").append(result1)
                     loader.setAttribute('style', 'display:none')
@@ -386,12 +355,12 @@ var generalSearch = () =>{
 
     navigator.geolocation.getCurrentPosition(successCallback,errorCallback)
 }
+
 var electronicSearch = () =>{
     const successCallback2 = (position) => {
         fourth.setAttribute('style','transform: translate(-100%)');
         fourthbyCodeContainer.setAttribute('style','transform:translate(-100%)')
         fifth.setAttribute('style','transform: translate(0%)')
-        console.log(position);
         var latitude = position.coords.latitude
         var longitude = position.coords.longitude
         var apiKey = 'e6c7145ef0589d5c1799b396e8bd2be3'
@@ -401,20 +370,16 @@ var electronicSearch = () =>{
                 url: url,
                 type: 'get',
             }) .done(function (data){
-                console.log(data)
                 $('#hidden').removeClass('hide')
                 location1.textContent = 'Electronics Recycling for '+ data[0].name + ', ' + data[0].state
                 let city = data[0].name
-    
                 let result1 = '';
-                // Commented out URL
-                let url2 = 'https://api.valueserp.com/search?api_key=C900A666A97042E0BA3DB407B95D254F&q=electronics+recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
+                let url2 = 'https://api.valueserp.com/search?api_key=0B06CFEBAB884DC49ED3D9055BBDFD5C&q=electronics+recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
     
                 $.ajax({
                 url: url2,
                 type: 'GET',
                 }).done(function(data){
-                    console.log(data)
                     data.local_results.forEach(result =>{
                     result1 = `<h1 class="title is-3">${result.title}</h1>
                         <p>${result.extensions[4]}</p>
@@ -430,7 +395,7 @@ var electronicSearch = () =>{
         console.error(error)
         modal.classList.add('is-active')
     }
-    
+
     navigator.geolocation.getCurrentPosition(successCallback2,errorCallback)
 }
 
@@ -440,7 +405,6 @@ var hazardSearch = () =>{
         fourth.setAttribute('style','transform: translate(-100%)');
         fourthbyCodeContainer.setAttribute('style','transform:translate(-100%)')
         fifth.setAttribute('style','transform: translate(0%)')
-        console.log(position);
         var latitude = position.coords.latitude
         var longitude = position.coords.longitude
         var apiKey = 'e6c7145ef0589d5c1799b396e8bd2be3'
@@ -450,20 +414,18 @@ var hazardSearch = () =>{
                 url: url,
                 type: 'get',
             }) .done(function (data){
-                console.log(data)
                 $('#hidden').removeClass('hide')
                 location1.textContent = 'Hazardous Recycling for '+ data[0].name + ', ' + data[0].state
                 let city = data[0].name
     
                 let result1 = '';
                 // Commented out URL
-                let url2 = 'https://api.valueserp.com/search?api_key=C900A666A97042E0BA3DB407B95D254F&q=hazardous+recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
+                let url2 = 'https://api.valueserp.com/search?api_key=0B06CFEBAB884DC49ED3D9055BBDFD5C&q=hazardous+recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
     
                 $.ajax({
                 url: url2,
                 type: 'GET',
                 }).done(function(data){
-                    console.log(data)
                     data.local_results.forEach(result =>{
                     result1 = `<h1 class="title is-3">${result.title}</h1>
                         <p>${result.extensions[4]}</p>
@@ -482,6 +444,7 @@ var hazardSearch = () =>{
     
     navigator.geolocation.getCurrentPosition(successCallback3,errorCallback)
     }
+
 var resetSerp = () => {
     result2.textContent = []
     loader.setAttribute('style', 'display:block')
@@ -549,10 +512,10 @@ const recyclingSymbols = {
   
 
 
-
-    let generateSearchByCodeOptions = () => {
+// Generates cards for search by code
+let generateSearchByCodeOptions = () => {
         searchByCodeAncestor.innerHTML = []
-      for (codes in recyclingSymbols){
+    for (codes in recyclingSymbols){
         let parentTile = document.createElement('div');
         parentTile.classList.add('tile', 'is-parent', 'searchByCodePage', 'is-4');
         parentTile.setAttribute('id', recyclingSymbols[codes].code)
@@ -582,7 +545,7 @@ const recyclingSymbols = {
 let generateFourthByCode = code => {
     resultsByCodeTitle.innerHTML = []
     resultsByCode.innerHTML = []
-  console.log(code)
+  
   let codeSwitch;
   switch (code) {
     case '1': codeSwitch = 'codeOne';
@@ -602,7 +565,8 @@ let generateFourthByCode = code => {
     default:
       break;
   }
-  console.log(codeSwitch)
+  
+  
   let byCodeParent = document.createElement('p')
   byCodeParent.textContent = code + ' ' + recyclingSymbols[codeSwitch].Name;
   let byCodeInfo = document.createElement('p');
