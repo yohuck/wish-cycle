@@ -36,7 +36,7 @@
     transition: 0.7s ease-in-out;
 }
 
-#second, #third, #fourth, #fifth, #searchByCodeContainer, #fourthByCode{
+#second, #third, #fourth, #fifth, #searchByCodeContainer, #searchByNameContainer, #fourthByCode{
     position: absolute;
     top: 0;
     left: 0;

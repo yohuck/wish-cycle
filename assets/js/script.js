@@ -2,7 +2,8 @@ let key = '4okwp6xyq58qv182lxa5x55u7'
 let secretKey = '4hgvzbv2wm36miayquqhapo6x5fudfo8f5dvkid29m6m6o4ddz'
 let appToken = '9Em3vkFlkE4FM14o46mGdx0ae'
 let resultElement = document.getElementById('result');
-let resultContent = document.getElementById('content')
+let resultContent = document.getElementById('content');
+let resultContentByName = document.getElementById('contentByName')
 let landing = document.getElementById('landing');
 let fourth = document.getElementById('fourth');
 let searchByCodeContainer = document.getElementById('searchByCodeContainer');
@@ -10,7 +11,8 @@ let searchByCodeAncestor = document.getElementById('searchByCode-ancestor');
 let fourthbyCodeContainer = document.getElementById('fourthByCode')
 let input = document.getElementById('search');
 let submit = document.getElementById('submit');
-let resultLabel = document.getElementById("resultLabel")
+let resultLabel = document.getElementById("resultLabel");
+let resultLabelByName = document.getElementById('resultLabelByName')
 let loader = document.getElementById('loader')
 let result2 = document.getElementById('result2')
 let location1 = document.getElementById('location1');
@@ -24,6 +26,7 @@ let modal = document.getElementById('modal')
 let modalButton= document.getElementById('modalBtn')
 let submiter = document.getElementById('searchByPicture');
 let searchByCode = document.getElementById('searchByCode');
+let searchByNameResults = document.getElementById('searchByNameContainer');
 let second = document.getElementById('second');
 let pageThree = document.getElementsByClassName('pageThree');
 let pizza = document.getElementById('pizza')
@@ -40,7 +43,7 @@ let goBackBtn5 = document.getElementById('startOverFourByCode');
 let goBackBtn6 = document.getElementById('startOver5');
 let goBackBtn7 = document.getElementById('startOverInfo');
 let goBackBtn8 = document.getElementById('removeDateElement');
-
+let goBackBtn9 = document.getElementById('startOverByName')
 // Search by input box and clicking submit button
 submit.addEventListener('click', function(event){
     if(input.value == ''){
@@ -48,9 +51,9 @@ submit.addEventListener('click', function(event){
     } else{
   let queryTerm = input.value.toUpperCase()
   let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25" + queryTerm + "%25'" 
-    fetchItem(query)
+    fetchItem(query, resultContentByName)
     landing.setAttribute('style','transform: translate(-100%)');
-    fourth.setAttribute('style','transform: translate(0%)')
+    searchByNameResults.setAttribute('style','transform: translate(0%)')
     resultLabel.textContent = queryTerm
 }})
 
@@ -62,10 +65,10 @@ input.addEventListener('keypress', (event) => {
    if(event.key === "Enter") {
     let queryTerm = input.value.toUpperCase()
     let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25" + queryTerm + "%25'" 
-      fetchItem(query)
+      fetchItem(query, resultContentByName)
       landing.setAttribute('style','transform: translate(-100%)');
-      fourth.setAttribute('style','transform: translate(0%)')
-      resultLabel.textContent = queryTerm
+      searchByNameResults.setAttribute('style','transform: translate(0%)')
+      resultLabelByName.textContent = queryTerm
   }
 }})
 
@@ -82,7 +85,7 @@ saveDateButton.addEventListener('click', function(){
 
 
 // The function being called for recycling information by picture or by input
-let fetchItem = urlSearch => {
+let fetchItem = (urlSearch, destination) => {
 
 $.ajax({
     url: urlSearch,
@@ -92,10 +95,10 @@ $.ajax({
       "$$app_token" : "9Em3vkFlkE4FM14o46mGdx0ae"
     }
 }).done(function(data) {
-    resultContent.innerHTML= []
+    destination.innerHTML= []
 const infoElem = document.createElement('p');
   infoElem.innerHTML = 'Similar products:  -- '+ data[0].material_synonyms+ '<br/> <br/>' +'Special instructions: --  ' +data[0].special_instructions+'<br/> <br/>'+ 'Where to bring:  -- ' + data[0].stream_title
-  resultContent.append(infoElem)
+  destination.append(infoElem)
 });
 
 }
@@ -145,7 +148,9 @@ let renderdate = () => {
 renderdate();
 
 let scrollToTop = () => {
-  $('article').scrollTop(0);
+  window.scroll({
+    top: 0
+  })
 }
 
 //   Back Buttons
@@ -158,21 +163,18 @@ goBackBtn.addEventListener('click', function(){
 
 goBackBtn2.addEventListener('click', function(){
   scrollToTop();
-  document.body.scrollTop = document.documentElement.scrollTop = 0;
         third.setAttribute('style','transform: translate(100%)');
         second.setAttribute('style','transform: translate(0%)');
       })
 
 goBackBtn3.addEventListener('click', function(){
   scrollToTop();
-  document.body.scrollTop = document.documentElement.scrollTop = 0;
         fourth.setAttribute('style','transform: translate(100%)');
         third.setAttribute('style','transform: translate(0%)');
       })
     
 goBackBtn4.addEventListener('click', function(){
   scrollToTop();
-  document.body.scrollTop = document.documentElement.scrollTop = 0;
         searchByCodeContainer.setAttribute('style','transform: translate(100%)');
         landing.setAttribute('style','transform: translate(0%)');
         
@@ -180,14 +182,12 @@ goBackBtn4.addEventListener('click', function(){
       
 goBackBtn5.addEventListener('click', function(){
   scrollToTop();
-  document.body.scrollTop = document.documentElement.scrollTop = 0;
         fourthByCode.setAttribute('style','transform: translate(100%)');
         searchByCodeContainer.setAttribute('style','transform: translate(0%)');
       })
 
 goBackBtn6.addEventListener('click', function(){
   scrollToTop();
-  document.body.scrollTop = document.documentElement.scrollTop = 0;
         fifth.setAttribute('style','transform: translate(100%)');
         landing.setAttribute('style','transform: translate(0%)');
         loader.setAttribute('style', 'display: block')
@@ -196,15 +196,18 @@ goBackBtn6.addEventListener('click', function(){
     
 goBackBtn7.addEventListener('click', function(){
   scrollToTop();
-  document.body.scrollTop = document.documentElement.scrollTop = 0;
   infoSection.setAttribute('style','transform: translate(-100%)')
   landing.setAttribute('style', 'transform: translate(0%)')
 })
 
 goBackBtn8.addEventListener('click', function(){
   scrollToTop();
-  document.body.scrollTop = document.documentElement.scrollTop = 0;
   saveDateElement.setAttribute('style','transform: translateY(-100%)')
+})
+goBackBtn9.addEventListener('click', function(){
+  scrollToTop();
+  landing.setAttribute('style','transform: translate(0%)');
+  searchByNameResults.setAttribute('style','transform: translate(100%)')
 })
 
 // Object for creating search by picture
@@ -320,7 +323,7 @@ let createCategoryTile = (category, page, pageTag) => {
             let queryTerm = searchByPictureQuery.toUpperCase()
             let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_title) like '%25" + queryTerm + "%25'" 
             console.log(query)
-            fetchItem(query)
+            fetchItem(query, resultContent)
             third.setAttribute('style','transform: translate(-100%');
             fourth.setAttribute('style','transform: translate(0%');
             resultLabel.textContent = queryTerm
