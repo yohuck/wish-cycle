@@ -98,6 +98,7 @@ $.ajax({
       "$$app_token" : "9Em3vkFlkE4FM14o46mGdx0ae"
     }
 }).done(function(data) {
+
     const infoElem = document.createElement('p');
     console.log(data)
     if (data[0].material_synonyms == undefined & data[0].material_synonyms == undefined){
