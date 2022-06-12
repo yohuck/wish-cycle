@@ -97,19 +97,8 @@ $.ajax({
 }).done(function(data) {
     destination.innerHTML= []
 const infoElem = document.createElement('p');
-    if (data[0].material_synonyms == undefined & data[0].material_synonyms == undefined){
-        infoElem.innerHTML= 'Where to bring:  -- ' + data[0].stream_title
-        destination.append(infoElem)
-    }else if(data[0].material_synonyms == undefined){
-        infoElem.innerHTML = 'Special instructions: --  ' +data[0].special_instructions+'<br/> <br/>'+ 'Where to bring:  -- ' + data[0].stream_title
-        destination.append(infoElem)
-    }else if (data[0].special_instructions == undefined){
-        infoElem.innerHTML = 'Similar products:  -- '+ data[0].material_synonyms+ '<br/> <br/>'+ 'Where to bring:  -- ' + data[0].stream_title
-        destination.append(infoElem)
-    } else{
   infoElem.innerHTML = 'Similar products:  -- '+ data[0].material_synonyms+ '<br/> <br/>' +'Special instructions: --  ' +data[0].special_instructions+'<br/> <br/>'+ 'Where to bring:  -- ' + data[0].stream_title
   destination.append(infoElem)
-    }
 });
 
 }
