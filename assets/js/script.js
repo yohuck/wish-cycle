@@ -95,20 +95,25 @@ $.ajax({
       "$$app_token" : "9Em3vkFlkE4FM14o46mGdx0ae"
     }
 }).done(function(data) {
-    destination.innerHTML= []
-const infoElem = document.createElement('p');
+    resultContent.innerHTML= []
+    const infoElem = document.createElement('p');
+    infoElem.innerHTML= []
     if (data[0].material_synonyms == undefined & data[0].material_synonyms == undefined){
         infoElem.innerHTML= 'Where to bring:  -- ' + data[0].stream_title
         destination.append(infoElem)
+        console.log(data)
     }else if(data[0].material_synonyms == undefined){
         infoElem.innerHTML = 'Special instructions: --  ' +data[0].special_instructions+'<br/> <br/>'+ 'Where to bring:  -- ' + data[0].stream_title
         destination.append(infoElem)
+        console.log(data)
     }else if (data[0].special_instructions == undefined){
         infoElem.innerHTML = 'Similar products:  -- '+ data[0].material_synonyms+ '<br/> <br/>'+ 'Where to bring:  -- ' + data[0].stream_title
         destination.append(infoElem)
+        console.log(data)
     } else{
-  infoElem.innerHTML = 'Similar products:  -- '+ data[0].material_synonyms+ '<br/> <br/>' +'Special instructions: --  ' +data[0].special_instructions+'<br/> <br/>'+ 'Where to bring:  -- ' + data[0].stream_title
-  destination.append(infoElem)
+    infoElem.innerHTML = 'Similar products:  -- '+ data[0].material_synonyms+ '<br/> <br/>' +'Special instructions: --  ' +data[0].special_instructions+'<br/> <br/>'+ 'Where to bring:  -- ' + data[0].stream_title
+    destination.append(infoElem)
+    console.log(data)
     }
 });
 
