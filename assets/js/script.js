@@ -143,12 +143,12 @@ $.ajax({
         electronicSearch1.setAttribute('style', 'display:block')
         recyclingSearch.setAttribute('style', 'display:none')
         hazardSearch1.setAttribute('style', 'display:none')
-    } 
-    else if (data[0].stream_title== 'Garbage collection'){
+    } else {
         electronicSearch1.setAttribute('style', 'display:block')
-        hazardSearch1.setAttribute('style', 'display:block')
         recyclingSearch.setAttribute('style', 'display:block')
+        hazardSearch1.setAttribute('style', 'display:block')
     } 
+
 });
 
 }
