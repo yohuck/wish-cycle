@@ -99,7 +99,7 @@ $.ajax({
     }
 }).done(function(data) {
     const infoElem = document.createElement('p');
-    console.log(data)
+    resultContentByName = []
     if (data[0].material_synonyms == undefined & data[0].material_synonyms == undefined){
         infoElem.innerHTML= 'Where to bring:  -- ' + data[0].stream_title
         destination.append(infoElem)
