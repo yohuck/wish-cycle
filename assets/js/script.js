@@ -44,13 +44,16 @@ let goBackBtn6 = document.getElementById('startOver5');
 let goBackBtn7 = document.getElementById('startOverInfo');
 let goBackBtn8 = document.getElementById('removeDateElement');
 let goBackBtn9 = document.getElementById('startOverByName')
+let recyclingSearch = document.getElementById('recyclingSearch')
+let electronicSearch1 = document.getElementById('electronicSearch')
+let hazardSearch1 = document.getElementById('hazardSearch')
 // Search by input box and clicking submit button
 submit.addEventListener('click', function(event){
     if(input.value == ''){
         void(0)
     } else{
   let queryTerm = input.value.toUpperCase()
-  let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25" + queryTerm + "%25'" 
+  let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_title) like '%25" + queryTerm + "%25'" 
     fetchItem(query, resultContentByName)
     landing.setAttribute('style','transform: translate(-100%)');
     searchByNameResults.setAttribute('style','transform: translate(0%)')
@@ -64,7 +67,7 @@ input.addEventListener('keypress', (event) => {
     } else{
    if(event.key === "Enter") {
     let queryTerm = input.value.toUpperCase()
-    let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_synonyms) like '%25" + queryTerm + "%25'" 
+    let query = "https://data.edmonton.ca/resource/gtej-pcij.json?$where=upper(material_title) like '%25" + queryTerm + "%25'" 
       fetchItem(query, resultContentByName)
       landing.setAttribute('style','transform: translate(-100%)');
       searchByNameResults.setAttribute('style','transform: translate(0%)')
@@ -95,10 +98,58 @@ $.ajax({
       "$$app_token" : "9Em3vkFlkE4FM14o46mGdx0ae"
     }
 }).done(function(data) {
-    destination.innerHTML= []
-const infoElem = document.createElement('p');
-  infoElem.innerHTML = 'Similar products:  -- '+ data[0].material_synonyms+ '<br/> <br/>' +'Special instructions: --  ' +data[0].special_instructions+'<br/> <br/>'+ 'Where to bring:  -- ' + data[0].stream_title
-  destination.append(infoElem)
+
+    const infoElem = document.createElement('p');
+    console.log(data)
+    if (data[0].material_synonyms == undefined & data[0].material_synonyms == undefined){
+        infoElem.innerHTML= 'Where to bring:  -- ' + data[0].stream_title
+        destination.append(infoElem)
+        console.log(data)
+    }else if(data[0].material_synonyms == undefined){
+        infoElem.innerHTML = 'Special instructions: --  ' +data[0].special_instructions+'<br/> <br/>'+ 'Where to bring:  -- ' + data[0].stream_title
+        destination.append(infoElem)
+        console.log(data)
+    }else if (data[0].special_instructions == undefined){
+        infoElem.innerHTML = 'Similar products:  -- '+ data[0].material_synonyms+ '<br/> <br/>'+ 'Where to bring:  -- ' + data[0].stream_title
+        destination.append(infoElem)
+        console.log(data)
+    } else if (data[0].stream_title == undefined){
+        infoElem.innerHTML = 'Similar products:  -- '+ data[0].material_synonyms+ '<br/> <br/>' +'Special instructions: --  ' +data[0].special_instructions
+        destination.append(infoElem)
+    } else {
+    infoElem.innerHTML = 'Similar products:  -- '+ data[0].material_synonyms+ '<br/> <br/>' +'Special instructions: --  ' +data[0].special_instructions+'<br/> <br/>'+ 'Where to bring:  -- ' + data[0].stream_title
+    destination.append(infoElem)
+    console.log(data)
+    }
+    if (data[0].stream_title == 'Eco Station drop-off (household hazardous waste)'){
+        hazardSearch1.setAttribute('style', 'display:block')
+        electronicSearch1.setAttribute('style', 'display:none')
+        recyclingSearch.setAttribute('style','display:none')
+    } else if (data [0].stream_title == 'Reuse') {
+        electronicSearch1.setAttribute('style', 'display:block')
+        recyclingSearch.setAttribute('style', 'display:block')
+        hazardSearch1.setAttribute('style:block')
+        destination.append(newEl)
+    }
+    else if (data[0].stream_title== 'Recycling Depot drop-off'){
+        electronicSearch1.setAttribute('style', 'display:none')
+        recyclingSearch.setAttribute('style', 'display:block')
+        hazardSearch1.setAttribute('style', 'display: none')
+    } else if (data[0].stream_title== 'Recycling collection'){
+        electronicSearch1.setAttribute('style', 'display:none')
+        recyclingSearch.setAttribute('style', 'display:block')
+        hazardSearch1.setAttribute('style', 'display: none')
+    } 
+    else if (data[0].stream_title== 'Eco Station drop-off (electronics & appliances)'){
+        electronicSearch1.setAttribute('style', 'display:block')
+        recyclingSearch.setAttribute('style', 'display:none')
+        hazardSearch1.setAttribute('style', 'display:none')
+    } 
+    else if (data[0].stream_title== 'Garbage collection'){
+        electronicSearch1.setAttribute('style', 'display:block')
+        hazardSearch1.setAttribute('style', 'display:block')
+        recyclingSearch.setAttribute('style', 'display:block')
+    } 
 });
 
 }
@@ -169,6 +220,7 @@ goBackBtn2.addEventListener('click', function(){
 
 goBackBtn3.addEventListener('click', function(){
   scrollToTop();
+  resultContent.innerHTML = []
         fourth.setAttribute('style','transform: translate(100%)');
         third.setAttribute('style','transform: translate(0%)');
       })
@@ -206,6 +258,7 @@ goBackBtn8.addEventListener('click', function(){
 })
 goBackBtn9.addEventListener('click', function(){
   scrollToTop();
+  resultContent.innerHTML = []
   landing.setAttribute('style','transform: translate(0%)');
   searchByNameResults.setAttribute('style','transform: translate(100%)')
 })
@@ -305,9 +358,7 @@ let createCategoryTile = (category, page, pageTag) => {
     let iconEdit = cards[i].children[0].children[1];
     iconEdit.classList.add(recyclingObject[iconEditParent].icon)
     cards[i].addEventListener('click',function(event){
-      let chosenCat = recyclingObject[this.id]  
       let chosenCategory = recyclingObject[this.id].itemNames;
-      let chosenCategoryCamel = recyclingObject[this.id]
       thirdAncestor.innerHTML = [];
       for (let i = 0; i < chosenCategory.length; i++){
         createCategoryTile(chosenCategory[i], thirdAncestor, 'pageThree');
