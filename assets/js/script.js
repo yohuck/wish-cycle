@@ -257,7 +257,7 @@ goBackBtn8.addEventListener('click', function(){
 })
 goBackBtn9.addEventListener('click', function(){
   scrollToTop();
-  resultContent.innerHTML = []
+  resultContentByName.innerHTML = []
   landing.setAttribute('style','transform: translate(0%)');
   searchByNameResults.setAttribute('style','transform: translate(100%)')
 })
