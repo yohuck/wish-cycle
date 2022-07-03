@@ -391,6 +391,7 @@ var generalSearch = () =>{
         loader.style.display = 'block'
         fourth.setAttribute('style','transform: translate(-100%)');
         fourthbyCodeContainer.setAttribute('style','transform:translate(-100%)')
+        searchByNameResults.setAttribute('style','transform: translate(-100%)')
         fifth.setAttribute('style','transform: translate(0%)')
         var latitude = position.coords.latitude
         var longitude = position.coords.longitude
@@ -432,6 +433,7 @@ var electronicSearch = () =>{
     const successCallback2 = (position) => {
         fourth.setAttribute('style','transform: translate(-100%)');
         fourthbyCodeContainer.setAttribute('style','transform:translate(-100%)')
+        searchByNameResults.setAttribute('style','transform: translate(-100%)')
         fifth.setAttribute('style','transform: translate(0%)')
         var latitude = position.coords.latitude
         var longitude = position.coords.longitude
@@ -476,6 +478,7 @@ var hazardSearch = () =>{
     const successCallback3 = (position) => {
         fourth.setAttribute('style','transform: translate(-100%)');
         fourthbyCodeContainer.setAttribute('style','transform:translate(-100%)')
+        searchByNameResults.setAttribute('style','transform: translate(-100%)')
         fifth.setAttribute('style','transform: translate(0%)')
         var latitude = position.coords.latitude
         var longitude = position.coords.longitude
