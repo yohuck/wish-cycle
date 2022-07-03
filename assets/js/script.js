@@ -204,6 +204,8 @@ let scrollToTop = () => {
 
 //   Back Buttons
 
+
+
 goBackBtn.addEventListener('click', function(){
       scrollToTop();
       second.setAttribute('style','transform: translate(100%)');
@@ -237,8 +239,14 @@ goBackBtn5.addEventListener('click', function(){
       })
 
 goBackBtn6.addEventListener('click', function(){
+  console.log('this transition')
   scrollToTop();
+        second.setAttribute('style', 'transform: translate(100%)');
+        third.setAttribute('style', 'transform: translate(100%)');
+        fourth.setAttribute('style', 'transform: translate(100%)');
         fifth.setAttribute('style','transform: translate(100%)');
+        searchByCodeContainer.setAttribute('style', 'translate(100%)');
+        fourthByCode.setAttribute('style', 'translate(100%)');
         landing.setAttribute('style','transform: translate(0%)');
         loader.setAttribute('style', 'display: block')
         result2.innerHTML = []
