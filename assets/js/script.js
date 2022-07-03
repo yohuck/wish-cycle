@@ -99,7 +99,6 @@ $.ajax({
     }
 }).done(function(data) {
     const infoElem = document.createElement('p');
-    resultContentByName.innerHTML = []
     if (data[0].material_synonyms == undefined & data[0].material_synonyms == undefined){
         infoElem.innerHTML= 'Where to bring:  -- ' + data[0].stream_title
         destination.append(infoElem)
@@ -219,9 +218,9 @@ goBackBtn2.addEventListener('click', function(){
 
 goBackBtn3.addEventListener('click', function(){
   scrollToTop();
-  resultContent.innerHTML = []
         fourth.setAttribute('style','transform: translate(100%)');
         third.setAttribute('style','transform: translate(0%)');
+        resultContent.innerHTML = []
       })
     
 goBackBtn4.addEventListener('click', function(){
@@ -257,9 +256,9 @@ goBackBtn8.addEventListener('click', function(){
 })
 goBackBtn9.addEventListener('click', function(){
   scrollToTop();
-  resultContentByName.innerHTML = []
   landing.setAttribute('style','transform: translate(0%)');
   searchByNameResults.setAttribute('style','transform: translate(100%)')
+  resultContentByName.innerHTML= []
 })
 
 // Object for creating search by picture
@@ -413,7 +412,7 @@ var generalSearch = () =>{
                     data.local_results.forEach(result =>{
                     result1 = `<h1 class="is-third title is-3">${result.title}</h1>
                         <p class="is-third">${result.extensions[4]}</p>
-                        <a href='${result.link}' target ='_blank'>${result.link}</a><br>  
+                        <a href='${result.link}' target ='_blank'>${result.link}</a><br>`   
                     
                     $("#result2").append(result1)
                     loader.setAttribute('style', 'display:none')
@@ -457,7 +456,7 @@ var electronicSearch = () =>{
                     data.local_results.forEach(result =>{
                     result1 = `<h1 class="title is-3">${result.title}</h1>
                         <p>${result.extensions[4]}</p>
-                        <a href='${result.link}' target ='_blank'>${result.link}</a><br><a>${result.link}</a><br>`
+                        <a href ='${result.link}' target ='_blank'>${result.link}</a><br>`
                     
                     $("#result2").append(result1)
                     loader.setAttribute('style', 'display:none')
@@ -496,7 +495,6 @@ var hazardSearch = () =>{
                 let result1 = '';
                 // Commented out URL
                 let url2 = 'https://api.valueserp.com/search?api_key=0B06CFEBAB884DC49ED3D9055BBDFD5C&q=hazardous+recycling&location='+ city+'&gl=us&cr=us&lr=lang_en&num=3'
-    
                 $.ajax({
                 url: url2,
                 type: 'GET',
@@ -504,7 +502,7 @@ var hazardSearch = () =>{
                     data.local_results.forEach(result =>{
                     result1 = `<h1 class="title is-3">${result.title}</h1>
                         <p>${result.extensions[4]}</p>
-                       <a href='${result.link}' target ='_blank'>${result.link}</a><br>`
+                        <a href = '${result.link}' target ='_blank'>${result.link}</a><br>`
     
                     $("#result2").append(result1)
                     loader.setAttribute('style', 'display:none')
