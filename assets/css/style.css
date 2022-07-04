@@ -33,6 +33,7 @@
 
 #landing{
     transition: 0.7s ease-in-out;
+    z-index: 6;
 }
 
 #second, #third, #fourth, #fifth, #searchByCodeContainer, #searchByNameContainer, #fourthByCode{
@@ -42,6 +43,10 @@
     z-index: 5;
     transform: translateX(100%);
     transition: 0.7s ease-in-out;
+}
+
+#fifth {
+    z-index: 7;
 }
 
 #infoSection{
