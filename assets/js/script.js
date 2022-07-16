@@ -539,7 +539,7 @@ const recyclingSymbols = {
       Name: 'PETE',
       FullName: 'Polyethylene Terephthalate',
       CommonItems: ["soft drinks", "water bottle", "single use itmes"],
-      Notes: "recycled by curbside pickup, rinse and clean of any food, remove caps",
+      Notes: "Recycled by curbside pickup. Rinse and clean of any food, remove caps",
   },
 
   codeTwo: {
@@ -547,7 +547,7 @@ const recyclingSymbols = {
       Name: 'HDPE',
       FullName: 'High Density Polyethylene',
       CommonItems: ["milk jugs", "juice bottles", "household cleaner bottles", "motor oil bottles", "cereal box liners"],
-      Notes: "recycled by curbside pickup ",
+      Notes: "Recycled by curbside pickup ",
   },
 
   codeThree: {
@@ -555,7 +555,7 @@ const recyclingSymbols = {
       Name: 'PVC',
       FullName: 'Polyvinyl Choride', 
       CommonItems: ["blister packaging", "siding", "wire jacketing", "piping"],
-      Notes: "can rarly be recycled, ask local waste management if it can be thrown in the trash or dropped off at a collection center",
+      Notes: "Can rarely be recycled. Ask local waste management if it can be thrown in the trash or dropped off at a collection center",
   },
 
   codeFour: {
@@ -570,7 +570,7 @@ const recyclingSymbols = {
       Name: 'PP',
       FullName: 'Polypropylene',
       CommonItems: ["yogurt containers", "syrup bottles","straws", "caps"],
-      Notes: "curbside progrms may recycle these, clean of any food or product, throw cap in the garbage",
+      Notes: "Curbside progrms may recycle these. Clean of any food or product, throw cap in the garbage",
   },
 
   codeSix: {
@@ -578,7 +578,7 @@ const recyclingSymbols = {
       Name: 'PS',
       FullName: 'Polystryrene',
       CommonItems: ["disposable plates", "egg containers", "meat tray", "carry-out containers", "compact disk tray", "styrofoam cups"],
-      Notes: "Not recyclable, place in a bag and squeeze the air out and thorw away",
+      Notes: "Not recyclable. Place in a bag and squeeze the air out and thorw away",
   },
 
   codeSeven: {
